@@ -5,7 +5,7 @@
       checkedClass:'checked',
       disabledClass:'disabled'
     }
-  }
+  };
   
   $.fn.checkable = function(options) {
     var options = $.extend($.checkable.options, options);
