@@ -1,3 +1,11 @@
+<h1 id='section_publish'>Publish Template</h1>
+
+<div class='field check'>
+  <%= f.check_box :listed %>
+  <%= f.label :listed, "List Template in Directory?"%>
+  <%= f.label :listed, "If you would like to share this template with others, check this box!", :class => 'help' %>
+</div>
+
 <div class='field text'>
   <%= f.label :name, 'Template Name:' %>
   <%= f.label :name, "Give this template a name. This is just for your own reference.", :class => 'help' %>
@@ -14,10 +22,4 @@
   <%= f.label :description, "Description"%>
   <%= f.label :description, "Some (Markdown) text about your template. Will be displayed in the directory and/or on your template's homepage.", :class => 'help' %>  
   <%= f.text_area :description %>
-</div>
-
-<div class='field check'>
-  <%= f.check_box :listed %>
-  <%= f.label :listed, "List Template in Directory?"%>
-  <%= f.label :listed, "If you would like to share this template with others, check this box!", :class => 'help' %>
 </div>

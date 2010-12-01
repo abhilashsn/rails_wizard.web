@@ -1,7 +1,7 @@
 class RailsTemplate
   include MongoMapper::Document         
 
-  STEPS = %w(app_info orm testing javascript authentication templating customize)
+  STEPS = %w(orm testing javascript authentication templating customize app_info)
 
   # Fields
   key :name, String
@@ -31,7 +31,7 @@ class RailsTemplate
   validates_uniqueness_of :slug
   
   def can_edit?(user)
-    self.user.nil? || user.id == self.user_id
+    self.user.nil? || (user.id == self.user_id if user)
   end
   
   # Params

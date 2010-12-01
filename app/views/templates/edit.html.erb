@@ -1,7 +1,9 @@
 <%= form_for template, :url => template_path(template), :html => {:method => :put} do |f| %>
   <%= hidden_field_tag :step, params[:step] %>
   
-  <%= render "steps/#{params[:step]}", :f => f %>
+  <% for step in RailsTemplate::STEPS %>
+    <%= render "steps/#{step}", :f => f %>
+  <% end %>
   
   <div class='field submit'>
     <%= f.submit 'Next Step', :style => 'float: right; margin-left: 6px' if next_step %>

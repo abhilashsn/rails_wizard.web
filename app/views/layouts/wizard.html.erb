@@ -1,17 +1,5 @@
 <%= render "layouts/head"%>
-      <nav id='sidebar'>
-        <ul>
-          <li><%= step 'app_info' do %><b>Template Info</b> <em>Basic information about your template.</em><% end %></li>
-          <li><%= step 'orm' do %><b>Database/ORM</b> <em>Choose your database and ORM.</em><% end %></li>
-          <li><%= step 'testing' do %><b>Testing</b> <em>Unit and integration testing.</em><% end %></li>
-          <li><%= step 'javascript' do %><b>Javascript</b> <em>Framework and plugins for JS</em><% end %></li>
-          <li><%= step 'authentication' do %><b>Authentication</b> <em>User sign in and sign up.</em><% end %></li>
-          <li><%= step 'templating' do %><b>Templating/CSS</b> <em>HAML, SASS, Less and more.</em><% end %></li>
-          <li><%= step 'customize' do %><b>Customize</b> <em>Add additional gems and recipes.</em><% end %></li>
-        </ul>
-      </nav>
-      <h1 id='heading'><%= @heading || "A Rocket-Fueled Kick in the App" %></h1>
-      <section id='main'>
+      <section id='main' class='fill'>
         <%= yield %>
       </section>
 <%= render "layouts/foot" %>

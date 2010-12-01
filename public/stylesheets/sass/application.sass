@@ -10,10 +10,10 @@ body
   padding: 0
   margin: 0
   font-family: $helvetica
-  background: #ddd
+  background: #222
 
 a
-  color: #379
+  color: #9ce
   
 section, header, footer, nav, aside, hgroup
   display: block
@@ -27,8 +27,9 @@ a img
   margin: 0
   padding-top: 15px
   height: 60px
-  +vertical-gradient(#fff, #ddd)
+  +vertical-gradient(#666, #222)
   nav
+    display: none
     float: left
     margin-left: 15px
     margin-top: -8px
@@ -55,8 +56,7 @@ a img
         +vertical-gradient(#fff, #ddd)
   section
     padding: 0 20px
-    min-width: 960px
-    max-width: 1280px
+    width: 960px
     margin: 0 auto
   h1
     margin: 0
@@ -105,26 +105,26 @@ a img
       +border-radius(10px)
     
 #wrapper
-  min-width: 960px
-  max-width: 1280px
-  padding: 0 20px
+  width: 960px
+  padding: 0 60px
   margin: 0 auto
 
 h1, h2, h3, h4
   letter-spacing: -0.05em
   
 #content
-  background: #f5f5f5
+  background: #111
   margin-top: 20px
   +border-radius(5px)
   +box-shadow(1px,1px,3px,rgba(0,0,0,0.3))
   padding-bottom: 15px
   +clearfix
   > header
-    +vertical-gradient(#666,#333)
+    +vertical-gradient(#49a,#278)
     padding: 8px 14px
     +border-top-radius(5px)
     +clearfix
+    +box-shadow(0,0,10px,#3af)
     iframe
       margin: 5px 0 0 10px
     h1
@@ -226,7 +226,8 @@ aside#sidebar
 
 #main
   margin: 0 15px 15px 315px
-  background: white
+  background: #222
+  color: #eee
   padding: 15px 25px 25px
   +box-shadow(0,1px,7px,rgba(0,0,0,0.3))
   +border-bottom-radius(10px)
@@ -234,13 +235,18 @@ aside#sidebar
     margin: 25px 25px 15px
     +border-top-radius(10px)
   h1, h2, h3, h4
-    border-bottom: 1px solid #ccc
     font-weight: normal
     margin: 15px 0 15px
     color: #555
     letter-spacing: 0
   h1
     font-size: 22px
+    color: white
+    +vertical-gradient(#333, #111)
+    +box-shadow(1px,1px,8px,rgba(0,0,0,0.4))
+    +border-left-radius(20px)
+    padding: 6px 17px
+    margin: 15px -25px 15px -45px
   p
     line-height: 150%
     
@@ -290,19 +296,36 @@ input, select, textarea
   font-family: $helvetica
    
 .field
-  padding: 10px 0
-  border-bottom: 1px solid #eee
+  padding: 10px
+  margin: 0 5px 5px 0
+  border: 1px solid #181818
+  +box-shadow(1px,1px,1px,#282828)
+  +border-radius(4px)
   width: 100%
+  +vertical-gradient(#282828,#222)
+  +animate("background-color,-webkit-box-shadow,-moz-box-shadow",0.25s)
+  &:hover, &.checked, &.focused
+    +vertical-gradient(rgba(255,255,255,0.1),rgba(0,0,0,0.1), transparent)
+  &.checked
+    background-color: #278
+    border-color: #49a
+    +box-shadow(0,0,15px,rgba(0,130,255,0.5))
+  &:hover, &.focused
+    background-color: #080808
+  &.disabled
+    opacity: 0.5
+    .help
+      color: #aaa
   label
     display: block
     margin-bottom: 5px
-    color: #444
-    text-shadow: 1px 1px 2px #ccc  
+    color: #fff
+    text-shadow: 1px 1px 2px black
     font-size: 18px
     &.help
       font-size: 12px
-      color: #888
-      text-shadow: 1px 1px 1px #ddd
+      color: #acc
+      text-shadow: 1px 1px 1px rgba(0,30,60,0.5)
       margin-top: -3px
       margin-bottom: 5px
   &.text
@@ -316,14 +339,14 @@ input, select, textarea
     margin-bottom: 0
     padding-top: 30px
   &.radio, &.check
-    div.radio, div.checker
-      float: left
-      margin: 3px 0 0 3px
-    div.checker
-      margin-top: 0
-    padding: 10px 0
+    cursor: pointer
+    display: inline-block
+    vertical-align: top
+    width: 400px
+    padding: 10px
+    margin: 0 5px 5px 0
     label
-      margin-left: 30px
+      cursor: pointer
   textarea
     width: 550px
     padding: 15px
@@ -356,8 +379,7 @@ form .field.submit input, a.button
       +vertical-gradient(#fff,#ddd)
           
 div.bespin
-  border: 1px solid #ddd
-  +box-shadow(1px,1px,3px,rgba(0,0,0,0.1))
+  +box-shadow(1px,1px,3px,black)
   
 #bottom
   padding: 10px 0 30px
@@ -492,3 +514,45 @@ table.tabular
   tr.odd
     td, th
       background: #eef5ff
+      
+#toc
+  position: fixed
+  top: 94px
+  left: -200px
+  +box-shadow(0,0,10px,black)
+  h1
+    font-size: 14px
+    position: absolute
+    width: 120px
+    text-align: center
+    top: 55px
+    left: 145px
+    margin: 0
+    +rotate(90)
+    color: white
+    +vertical-gradient(#333,#111)
+    padding: 5px 8px
+    +border-top-radius(5px)
+    +box-shadow(0,0,5px,black)
+    text-shadow: 1px 1px 2px black
+    opacity: 0.7
+  nav
+    width: 200px
+    background: #111
+    a
+      color: white
+      display: block
+      text-decoration: none
+      padding: 9px
+      font-size: 12px
+      +vertical-gradient(#333,#222)
+      &:hover
+        color: #bde
+
+#toc:hover
+  left: 0px
+  h1
+    opacity: 1.0
+  
+#toc
+  +animate(left,0.25s)

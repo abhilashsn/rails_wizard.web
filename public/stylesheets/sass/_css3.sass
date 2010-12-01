@@ -1,4 +1,15 @@
 //
+// Generic
+//
+
+=vendor($rule, $value)
+  -webkit-#{$rule}: $value
+  -moz-#{$rule}: $value
+  -o-#{$rule}: $value
+  -ms-#{$rule}: $value
+  #{$rule}: $value
+
+//
 // Rounded Corners
 //
 
@@ -87,3 +98,11 @@
   -webkit-transform: rotate(#{$degrees}deg)
   filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$percent})
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$percent})"
+  
+//
+// Animation
+//
+
+=animate($properties:"all",$durations:"0.5s")
+  +vendor(transition-property, $properties)
+  +vendor(transition-duration, $durations)
