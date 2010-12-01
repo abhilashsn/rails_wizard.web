@@ -10,6 +10,7 @@ gem 'git-deploy'
 gem 'haml'
 gem 'maruku'
 gem 'tweet-button'
+gem 'jammit'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.0.1'

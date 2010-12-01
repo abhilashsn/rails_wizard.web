@@ -10,6 +10,7 @@ test:
   <<: *defaults
   database: rails_wizard_test
 
+<% if ENV['MONGOHQ_URL'] %>
 <% uri = URI.parse(ENV['MONGOHQ_URL']) %>
 production:
   host: <%= uri.host %>
@@ -17,3 +18,4 @@ production:
   database: <%= uri.path.sub('/','') %>
   username: <%= uri.user %>
   password: <%= uri.password %>
+<% end %>

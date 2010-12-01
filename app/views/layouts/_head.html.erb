@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>RailsWizard</title>
-  <%= stylesheet_link_tag 'application', 'uniform.agent', :cache => 'all' %>
-  <%= javascript_include_tag 'jquery', 'rails', 'jquery.uniform', 'jquery.checkable', 'application', :cache => 'all' %>
+  <%= include_javascripts :app %>
+  <%= include_stylesheets :app %>
   <%= csrf_meta_tag %>
   <%= content_for :head %>
 </head>
