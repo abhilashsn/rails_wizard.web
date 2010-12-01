@@ -1,6 +1,6 @@
 <% content_for(:after_page_title) do %>
   <%= link_to 'Edit', edit_path(template), :class => 'button' if template.can_edit?(current_user) %>
-  <%= tweet_button :text => "Check out the '#{template.name}' Rails template", :count => 'horizontal', :via => 'railswizard' %>
+  <%#= tweet_button :text => "Check out the '#{template.name}' Rails template", :count => 'horizontal', :via => 'railswizard' %>
 <% end %>
 
 <% if template.description? %>

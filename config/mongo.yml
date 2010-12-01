@@ -1,0 +1,19 @@
+defaults: &defaults
+  host: 127.0.0.1
+  port: 27017
+
+development:
+  <<: *defaults
+  database: rails_wizard_development
+
+test:
+  <<: *defaults
+  database: rails_wizard_test
+
+<% uri = URI.parse(ENV['MONGOHQ_URL']) %>
+production:
+  host: <%= uri.host %>
+  port: <%= uri.port %>
+  database: <%= uri.path.sub('/','') %>
+  username: <%= uri.user %>
+  password: <%= uri.password %>
