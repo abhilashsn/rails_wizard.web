@@ -21,7 +21,7 @@
         if ($(e.target).is('label') || input.is(':disabled')) { return true; }
         
         if (input.is(':checkbox')) {
-          input.is(':checked') ? input.attr('checked',false) : input.attr('checked',true)
+          input.is(':checked') ? input.attr('checked',false) : input.attr('checked',true);
           input.trigger('checkable.change');
         } else {
           input.attr('checked',true);
@@ -47,8 +47,8 @@
       
       input.trigger('checkable.change');
     });
-  }
-})(jQuery)
+  };
+})(jQuery);
 /*
 
 Uniform v1.7.5
