@@ -497,15 +497,26 @@ input, select, textarea {
       text-shadow: 1px 1px 1px rgba(0, 30, 60, 0.5);
       margin-top: -3px;
       margin-bottom: 5px; }
-  .field.text input {
-    font-size: 18px;
-    padding: 4px 7px; }
+  .field.text {
+    width: 97%; }
+    .field.text input {
+      font-size: 18px;
+      padding: 4px 7px; }
   .field.submit {
     border: 0;
     text-align: right;
-    padding-bottom: 0;
-    margin-bottom: 0;
-    padding-top: 30px; }
+    margin: 10px 0;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#111111));
+    background-image: -moz-linear-gradient(top, #222222, #111111);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222222', endColorstr='#111111');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#222222', endColorstr='#111111')";
+    -moz-border-radius-bottomright: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    -moz-border-radius-bottomleft: 8px;
+    -webkit-border-bottom-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border: 0; }
   .field.radio, .field.check {
     cursor: pointer;
     display: inline-block;
@@ -515,6 +526,10 @@ input, select, textarea {
     margin: 0 5px 5px 0; }
     .field.radio label, .field.check label {
       cursor: pointer; }
+  .field.check input {
+    float: left;
+    margin-top: 6px;
+    margin-right: 6px; }
   .field textarea {
     width: 550px;
     padding: 15px;
@@ -530,10 +545,10 @@ input, select, textarea {
 form .field.submit input, a.button {
   display: inline-block;
   vertical-align: middle;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#bbddee), to(#99bbcc));
-  background-image: -moz-linear-gradient(top, #bbddee, #99bbcc);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bbddee', endColorstr='#99bbcc');
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#bbddee', endColorstr='#99bbcc')";
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#115566), to(#004455));
+  background-image: -moz-linear-gradient(top, #115566, #004455);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#115566', endColorstr='#004455');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#115566', endColorstr='#004455')";
   -moz-box-shadow: 1px 1px 4px rgba(0, 40, 100, 0.2);
   -webkit-box-shadow: 1px 1px 4px rgba(0, 40, 100, 0.2);
   box-shadow: 1px 1px 4px rgba(0, 40, 100, 0.2);
@@ -542,12 +557,12 @@ form .field.submit input, a.button {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  text-shadow: 1px 1px 1px #cceeff;
+  text-shadow: 1px 1px 3px black;
   padding: 8px 14px;
-  color: #225566;
+  color: white;
   font-weight: bold;
   font-size: 16px;
-  border: 1px solid #66aabb;
+  border: 1px solid #115566;
   text-decoration: none; }
   form .field.submit input:hover, form .field.submit input:focus, a.button:hover, a.button:focus {
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#cceeff), to(#aaccdd));
@@ -693,7 +708,7 @@ ul.recipe_list {
 
 #template_description {
   font-size: 18px;
-  color: #666666;
+  color: #aaaaaa;
   padding: 20px 25px 0; }
   #template_description p {
     margin: 0 0 10px 0;
@@ -811,6 +826,34 @@ table.tabular {
   -o-transition-duration: 0.25s;
   -ms-transition-duration: 0.25s;
   transition-duration: 0.25s; }
+
+#intro {
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#111111), to(#222222));
+  background-image: -moz-linear-gradient(top, #111111, #222222);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#111111', endColorstr='#222222');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#111111', endColorstr='#222222')";
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 0 0 20px black;
+  -webkit-box-shadow: 0 0 20px black;
+  box-shadow: 0 0 20px black;
+  filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=0, Color='black')";
+  -ms-filter: "\"progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=0, Color='black')\"";
+  color: white;
+  padding: 20px;
+  text-shadow: 1px 1px 3px black;
+  margin: 20px 0 30px; }
+  #intro h1 {
+    color: #88ddff;
+    text-align: center;
+    margin: 0 0 15px 0;
+    font-size: 36px;
+    font-weight: normal; }
+  #intro p {
+    margin-bottom: 0;
+    line-height: 150%;
+    font-size: 18px; }
 
 /*
 

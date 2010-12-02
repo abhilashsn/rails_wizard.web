@@ -329,15 +329,17 @@ input, select, textarea
       margin-top: -3px
       margin-bottom: 5px
   &.text
+    width: 97%
     input
       font-size: 18px
       padding: 4px 7px
   &.submit
     border: 0
     text-align: right
-    padding-bottom: 0
-    margin-bottom: 0
-    padding-top: 30px
+    margin: 10px 0
+    +vertical-gradient(#222,#111)
+    +border-bottom-radius(8px)
+    border: 0
   &.radio, &.check
     cursor: pointer
     display: inline-block
@@ -347,6 +349,11 @@ input, select, textarea
     margin: 0 5px 5px 0
     label
       cursor: pointer
+  &.check
+    input
+      float: left
+      margin-top: 6px
+      margin-right: 6px
   textarea
     width: 550px
     padding: 15px
@@ -358,15 +365,15 @@ input, select, textarea
 form .field.submit input, a.button
   display: inline-block
   vertical-align: middle
-  +vertical-gradient(#bde, #9bc)
+  +vertical-gradient(#156, #045)
   +box-shadow(1px,1px,4px,rgba(0,40,100,0.2))
   +border-radius(5px)
-  text-shadow: 1px 1px 1px #cef
+  text-shadow: 1px 1px 3px black
   padding: 8px 14px
-  color: #256
+  color: white
   font-weight: bold
   font-size: 16px
-  border: 1px solid #6ab
+  border: 1px solid #156
   text-decoration: none
   &:hover, &:focus
     +vertical-gradient(#cef, #acd)
@@ -482,7 +489,7 @@ ul.recipe_list
         
 #template_description
   font-size: 18px
-  color: #666
+  color: #aaa
   padding: 20px 25px 0
   p
     margin: 0 0 10px 0
@@ -557,3 +564,22 @@ table.tabular
   
 #toc
   +animate(left,0.25s)
+  
+#intro
+  +vertical-gradient(#111,#222)
+  +border-radius(10px)
+  +box-shadow(0,0,20px,black)
+  color: white
+  padding: 20px
+  text-shadow: 1px 1px 3px black
+  margin: 20px 0 30px
+  h1
+    color: #8df
+    text-align: center
+    margin: 0 0 15px 0
+    font-size: 36px
+    font-weight: normal
+  p
+    margin-bottom: 0
+    line-height: 150%
+    font-size: 18px

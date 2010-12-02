@@ -3,7 +3,7 @@
 <div class='field text'>
   <%= f.label :custom_code, 'Custom Template Code:' %>
   <%= f.label :custom_code, 'Add Ruby code that will be appended to the end of the template. Use this to add features not supported by the wizard. Check the <a href="http://api.rubyonrails.org/classes/Rails/Generators/Actions.html" target="_blank">Rails Documentation</a> for additional information about commands you can use.'.html_safe, :class => 'help' %>
-  <%= f.text_area :custom_code, :class => 'bespin', :style => 'height: 400px; margin-top: 10px' %>
+  <%= f.text_area :custom_code, :class => 'bespin', :style => 'height: 400px; margin-top: 10px; width: 700px; margin-left: 40px' %>
 </div>
 
 <%= bespin_setup 'rails_template_custom_code' %>

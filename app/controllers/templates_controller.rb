@@ -12,12 +12,17 @@ class TemplatesController < ApplicationController
     render :action => 'index', :layout => 'application'
   end
   
+  def new
+    @toc = true
+    @template = RailsTemplate.new
+  end
+  
   def create
     @template = RailsTemplate.new(params[:rails_template])
     @template.user = current_user if signed_in?
     
     if @template.save
-      redirect_to edit_path(@template)
+      redirect_to show_path(@template)
     else
       flash[:alert] = 'Unable to create a template. Something is wrong.'
       redirect_to root_path
@@ -25,6 +30,7 @@ class TemplatesController < ApplicationController
   end
   
   def edit
+    @toc = true
     params[:step] ||= 'app_info'
     @heading = params[:step].titleize
     @page_title = "Editing '#{template.name}'"

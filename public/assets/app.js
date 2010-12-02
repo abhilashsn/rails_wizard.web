@@ -167,7 +167,7 @@ e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["
     
     return this.each(function() {
       var container = $(this);
-      var input = $(this).find('input:radio, input:checkbox');
+      var input = $(this).find('input:radio');
       
       if (input.is(':disabled'))
         container.addClass('disabled');
@@ -1016,22 +1016,24 @@ $(function() {
     return false;
   });
 
-  $('body').append('<section id="toc"><h1>Jump To Section</h1><nav></nav></section>');
+  if (generateTOC) {
+    $('body').append('<section id="toc"><h1>Jump To Section</h1><nav></nav></section>');
   
-  var hId = 1;
-  $('#main h1').each(function() {
-    if (!$(this).attr('id')) {
-      $(this).attr('id', "heading_" + hId);
-      hId++;
-    }
+    var hId = 1;
+    $('#main h1').each(function() {
+      if (!$(this).attr('id')) {
+        $(this).attr('id', "heading_" + hId);
+        hId++;
+      }
     
-    $('#toc nav').append('<a href="#' + $(this).attr('id') + '">' + $(this).text() + '</a>');
-    $('#toc nav a').live('click',function() {
-      var target = $($(this).attr('href'));
-      $('html,body').animate({scrollTop:target.offset().top - 30});
-      return false;
+      $('#toc nav').append('<a href="#' + $(this).attr('id') + '">' + $(this).text() + '</a>');
+      $('#toc nav a').live('click',function() {
+        var target = $($(this).attr('href'));
+        $('html,body').animate({scrollTop:target.offset().top - 30});
+        return false;
+      });
     });
-  });
+  }
   
   $('.field.radio, .field.check').checkable();
 });

@@ -1,17 +1,24 @@
-<h1>5 minutes to save you 5 hours</h1>
+<% content_for :before_content do%>
+  <aside id='intro'>
+    <h1>Give Your App a Rocket-Fueled Kickstart</h1>
 
-<p>Rails Wizard is a web-based wizard to walk you through the first steps of 
-creating a Rails application. The first hours of a Rails project can be 
-frustrating: you feel as though you've done all of this before in a slightly
-different context. Rails Wizard aims to get all of the repetitive startup
-cost out of the development process, letting you focus on getting awesome
-fast.</p>
+    <p>Rails Wizard is a web-based wizard to walk you through the first steps of 
+    creating a Rails application. The first hours of a Rails project can be 
+    frustrating: you feel as though you've done all of this before in a slightly
+    different context. Rails Wizard aims to get all of the repetitive startup
+    cost out of the development process, letting you focus on getting awesome
+    fast.</p>
+    
+    <p>All you have to do is choose from the various options below and click <b>"Create Template"</b> at the bottom of the page. We'll automatically build a custom Rails template and give you the command-line instructions you need to get it up and running.</p>
+  </aside>
+<% end %>
 
-<p>To get started, just enter a name for your template and click <b>"Start"</b>
-below. The template could be named for a specific application you're working
-on, or it could be a generic name for the type of template you're building.</p>
-
-<%= form_for RailsTemplate.new, :url => templates_path, :html => {:id => 'start_form'} do |f| %>
-  <%= f.text_field :name, :placeholder => 'Template Name' %>
-  <button type='submit'>Start</button>
+<%= form_for template, :url => templates_path do |f| %>
+  <% for step in RailsTemplate::STEPS %>
+    <%= render "steps/#{step}", :f => f %>
+  <% end %>
+  
+  <div class='field submit'>
+    <%= f.submit 'Create Template' %>    
+  </div>
 <% end %>

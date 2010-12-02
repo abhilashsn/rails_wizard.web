@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>RailsWizard</title>
+  <%= generate_toc(@toc) %>
   <%= include_javascripts :app %>
   <%= include_stylesheets :app %>
   <%= csrf_meta_tag %>
@@ -21,6 +22,7 @@
         </ul>
       </nav>
       <aside id='user_bar'>
+        <%= link_to image_tag("/images/intridea.png", :alt => "built by Intridea"), 'http://www.intridea.com/', :target => '_blank', :style => 'float: right' %>
         <% if signed_in? %>
           <div id='signed_in'>
           <%= link_to user_path(current_user) do %>
@@ -29,24 +31,22 @@
           <%= link_to 'Sign Out', sign_out_path %>
           </div>
         <% else %>
-          <div id='sign_in'>
+          <!--<div id='sign_in'>
             <span>Sign In</span>
             <aside id='sign_ins'>
               <%= link_to image_tag('/images/providers/twitter.png', :alt => 'Twitter'), '/auth/twitter' %>
               <%= link_to image_tag('/images/providers/github.png', :alt => 'Twitter'), '/auth/github' %>
             </aside>
-          </div>
+          </div>-->
         <% end %>
       </aside>
     </section>
   </header>
   
   <div id='wrapper'>
+    <%= yield :before_content %>
     <section id="content">
       <header>
-        <% if @template %>
-          <h2><%= link_to compile_url(template), compile_url(template), :target => '_template' %></h2>
-        <% end %>
         <h1><%= @page_title || "Create a Rails Application Template" %></h1>
         <%= yield :after_page_title %>
       </header>

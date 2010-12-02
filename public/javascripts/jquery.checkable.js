@@ -12,7 +12,7 @@
     
     return this.each(function() {
       var container = $(this);
-      var input = $(this).find('input:radio, input:checkbox');
+      var input = $(this).find('input:radio');
       
       if (input.is(':disabled'))
         container.addClass('disabled');
