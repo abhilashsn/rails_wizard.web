@@ -69,7 +69,13 @@ module OpenID
       end
 
       def remove_association(server_url, handle)
-        Association.destroy_all({:server_url => server_url, :handle => handle}).size > 0
+        associations = Association.find_all_by_server_url_and_handle(server_url, handle)
+        if associations.size > 0
+          associations.each{|a| a.destroy}
+          true
+        else
+          false
+        end
       end
 
       def use_nonce(server_url, timestamp, salt)
