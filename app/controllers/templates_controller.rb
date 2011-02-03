@@ -50,7 +50,7 @@ class TemplatesController < ApplicationController
   end
   
   def show
-    @page_title = "#{template.name}".html_safe if template
+    @page_title = template && template.name?? "#{template.name}".html_safe : "Your Template"
     @heading = 'Generate Your Application'
     render :action => 'show', :layout => 'application'
   end

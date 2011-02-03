@@ -27,7 +27,7 @@ class RailsTemplate
   end
   
   # Validations
-  validates_presence_of :name, :slug
+  validates_presence_of :slug
   validates_uniqueness_of :slug
   
   def can_edit?(user)
