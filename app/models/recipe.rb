@@ -24,8 +24,10 @@ class Recipe
     ['Javascript','javascript'],
     ['Database/ORM','orm'],
     ['Unit Testing','unit_testing'],
+    ['Template Engine', 'templating'],
     ['Integration Testing','integration_testing'],
     ['Authentication','authentication'],
+    ['CSS','css']
 #    ['Other','other']
   ]
   
