@@ -20,6 +20,8 @@ class RailsTemplate
   key :recipes, Array  
   key :custom_code, String
   
+  attr_protected :user, :user_id
+  
   timestamps!
   
   def command_line_options
@@ -45,6 +47,10 @@ class RailsTemplate
   
   def recipes
     Recipe.where(:slug => RECIPE_FIELDS.map{|f| self.send(f)})
+  end
+  
+  def name
+    super.blank?? slug : super
   end
   
   def app_info?; !self.listed.nil? end

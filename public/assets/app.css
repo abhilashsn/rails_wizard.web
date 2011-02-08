@@ -70,8 +70,10 @@ a img {
     margin: 0 auto; }
   #top h1 {
     margin: 0;
-    float: left; }
+    float: left;
+    z-index: 1000000; }
   #top #user_bar {
+    margin-left: 300px;
     padding-top: 10px;
     position: relative;
     font-size: 12px; }
@@ -669,7 +671,7 @@ ul.recipe_list {
     color: #333333;
     border: 0; }
     #main article.template_listing h1 a {
-      color: #335566;
+      color: white;
       text-decoration: none;
       display: inline-block; }
     #main article.template_listing h1 a.edit {

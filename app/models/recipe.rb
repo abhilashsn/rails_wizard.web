@@ -18,6 +18,8 @@ class Recipe
   
   validates_presence_of :name, :slug
   
+  attr_protected :approved
+  
   CATEGORIES = [
     ['Javascript','javascript'],
     ['Database/ORM','orm'],
