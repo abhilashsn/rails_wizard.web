@@ -45,8 +45,10 @@ class RecipesController < ApplicationController
   end
   
   def toggle
-    recipe.approved = !recipe.approved?
-    if recipe.save
+    @recipe = Recipe.from_param(params[:id])
+    
+    @recipe.approved = !@recipe.approved?
+    if @recipe.save
       flash[:notice] = "Toggled successfully."
     else
       flash[:alert] = "Something went wrong."
