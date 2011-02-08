@@ -1,0 +1,19 @@
+<h1>Pending</h1>
+<table>
+  <% for recipe in @pending_recipes %>
+    <tr>
+      <th><%= link_to recipe.name %></th>
+      <td><%= recipe.approved?? 'Approved' : 'Pending' %></td>
+      <td><%= link_to (recipe.approved?? 'Unapprove' : 'Approve'), toggle_recipe_path(recipe), :method => :put %></td>
+  <% end %>
+</table>
+
+<h1>Approved</h1>
+<table>
+  <% for recipe in @recipes %>
+    <tr>
+      <th><%= link_to recipe.name %></th>
+      <td><%= recipe.approved?? 'Approved' : 'Pending' %></td>
+      <td><%= link_to (recipe.approved?? 'Unapprove' : 'Approve'), toggle_recipe_path(recipe), :method => :put %></td>
+  <% end %>
+</table>

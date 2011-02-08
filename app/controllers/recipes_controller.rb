@@ -3,17 +3,19 @@ class RecipesController < ApplicationController
   
   before_filter do
     @page_title = "RailsWizard Recipes"
-    @back = '/recipes'
+    @back = '/'
     if signed_in?
-      @pending_recipes = Recipe.where(:user_id => current_user.id).pending
-      @recipes = Recipe.where(:user_id => current_user.id).approved
+      @user_pending_recipes = Recipe.where(:user_id => current_user.id).pending
+      @user_recipes = Recipe.where(:user_id => current_user.id).approved
     end
   end
   
   before_filter :login_required, :only => [:create, :new, :edit, :update]
   before_filter :access_required, :only => [:edit, :update]
+  before_filter :admin_required, :only => [:moderate, :toggle]
   
   def index
+    render :text => 'Not Ready'
     @heading = "All Recipes"
     @recipes = Recipe.all(:order => [['category', 1]])
   end
@@ -35,6 +37,21 @@ class RecipesController < ApplicationController
   
   def show
     @heading = "Recipe: <em>#{recipe.name}</em>".html_safe
+  end
+  
+  def moderate
+    @pending_recipes = Recipe.pending
+    @recipes = Recipe.approved
+  end
+  
+  def toggle
+    recipe.approved = !recipe.approved?
+    if recipe.save
+      flash[:notice] = "Toggled successfully."
+    else
+      flash[:alert] = "Something went wrong."
+    end
+    redirect_to :back
   end
   
   def update

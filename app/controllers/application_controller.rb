@@ -32,5 +32,12 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def admin_required
+    unless admin?
+      flash[:alert] = 'You must be an admin to access that.'
+      redirect_to @back || :back
+    end
+  end
+  
   helper_method :signed_in?, :current_user, :admin?
 end

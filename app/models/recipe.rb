@@ -24,7 +24,7 @@ class Recipe
     ['Unit Testing','unit_testing'],
     ['Integration Testing','integration_testing'],
     ['Authentication','authentication'],
-    ['Other','other']
+#    ['Other','other']
   ]
   
   def options=(opts)

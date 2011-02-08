@@ -2,7 +2,15 @@ RailsWizard::Application.routes.draw do
   root :to => 'templates#new'
 
   resources :templates
-  resources :recipes
+  resources :recipes do
+    collection do
+      get :moderate
+    end
+    
+    member do
+      put :toggle
+    end
+  end
   resources :users
   
   match '/auth/sign_out', :to => 'sessions#destroy', :as => 'sign_out'
