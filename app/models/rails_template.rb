@@ -16,8 +16,8 @@ class RailsTemplate
   
   RECIPE_FIELDS = %w(orm unit_testing integration_testing javascript authentication templating css)
   RECIPE_FIELDS.each{|f| key f, String}
-  key :recipes, Array
-  
+
+  key :recipes, Array  
   key :custom_code, String
   
   timestamps!

@@ -1,28 +1,29 @@
 class User
   include MongoMapper::Document         
-
-  one :authorization
-  key :name, String
   
-  has_many :recipes
-  has_many :rails_templates
+  key :uid, String
+  key :nickname, String
+  key :name, String
+  key :email, String
+
+  many :recipes
+  many :rails_templates
   
   def self.from_hash(auth_hash)
-    user = authorize(auth_hash['provider'], auth_hash['uid'])
+    user = authorize(auth_hash['uid'])
     user ||= User.create(
-      :name => (auth_hash['user_info']['name'] rescue 'User'),
-      :authorization => {
-        :provider => auth_hash['provider'],
-        :uid => auth_hash['uid']
-      }
+      :uid => auth_hash['uid'],
+      :nickname => auth_hash['user_info']['nickname'],
+      :name => auth_hash['user_info']['name'],
+      :email => auth_hash['user_info']['email']
     )
   end
   
   def admin?
-    false
+    (ENV['ADMINS'].split(',') rescue []).include?(nickname)
   end
   
-  def self.authorize(provider, uid)
-    User.where('authorization.provider' => provider, 'authorization.uid' => uid).first
+  def self.authorize(uid)
+    User.where('uid' => uid).first
   end
 end

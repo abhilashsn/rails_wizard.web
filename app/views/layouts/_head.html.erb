@@ -23,22 +23,17 @@
         </ul>
       </nav>
       <aside id='user_bar'>
-        <%= link_to image_tag("/images/intridea.png", :alt => "built by Intridea"), 'http://www.intridea.com/', :target => '_blank', :style => 'float: right' %>
+        <%= link_to image_tag("/images/intridea.png", :alt => "built by Intridea"), 'http://www.intridea.com/', :target => '_blank' %>
         <% if signed_in? %>
           <div id='signed_in'>
-          <%= link_to user_path(current_user) do %>
+          <%= link_to user_path(current_user), :class => ('admin' if current_user.admin?) do %>
             <b><%= current_user.name %></b>
           <% end %>
+          
           <%= link_to 'Sign Out', sign_out_path %>
           </div>
         <% else %>
-          <!--<div id='sign_in'>
-            <span>Sign In</span>
-            <aside id='sign_ins'>
-              <%= link_to image_tag('/images/providers/twitter.png', :alt => 'Twitter'), '/auth/twitter' %>
-              <%= link_to image_tag('/images/providers/github.png', :alt => 'Twitter'), '/auth/github' %>
-            </aside>
-          </div>-->
+          <%= link_to image_tag("/images/github.png") + "Sign in with GitHub", '/auth/github', :id => 'sign_in', :rel => 'nofollow' %>
         <% end %>
       </aside>
     </section>

@@ -64,46 +64,42 @@ a img
   #user_bar
     padding-top: 10px
     position: relative
+    font-size: 12px
+    #signed_in, #sign_in
+      margin-top: 15px
     #signed_in
       float: right
-      line-height: 40px
+      +vertical-gradient(#444, #222, #333)
+      +border-radius(5px)
+      +box-shadow(1px,1px,5px,black)
+      padding: 4px 8px
       a
-        color: #333
-        margin-left: 10px
+        color: #ddd
+        margin: 0 5px        
+        text-decoration: none
+        &.admin
+          color: #fc0
+        &:hover
+          color: #fff
     #sign_in
-      color: #333
-      font-weight: bold
-      display: block
       float: right
-      text-decoration: none
-      padding: 10px 16px 14px
-      &:hover
-        background: #666
-        z-index: 999
-        color: white
-        +border-top-radius(10px)
-        #sign_ins
-          display: block
-  #sign_ins
-    position: absolute
-    display: none
-    top: 48px
-    right: 0
-    margin-left: 600px
-    +vertical-gradient(#666, #333)
-    +box-shadow(0px,2px,6px,rgba(0,0,0,0.4))
-    padding: 15px
-    z-index: 9998
-    +border-radius(10px)
-    +border-top-right-radius(0px)
-    a
       display: inline-block
-      padding: 1px 3px
-      margin-top: 5px
+      +vertical-gradient(#444, #222, #333)
+      +border-radius(5px)
+      +box-shadow(1px,1px,5px,black)
+      padding: 4px 8px
+      font-weight: bold
+      color: #ddd
+      text-decoration: none
       &:hover
-        background: #666
-      +border-radius(10px)
-    
+        color: white
+        +box-shadow(0,0,8px,rgba(0,128,255,0.7))
+        text-shadow: 0 0 6px rgba(0,128,255,0.7)
+      img
+        vertical-align: top
+        margin-right: 5px
+        
+
 #wrapper
   width: 960px
   padding: 0 60px
