@@ -12,6 +12,7 @@ class Recipe
   belongs_to :user
   
   scope :approved, :approved => true
+  scope :pending, :approved => false
   
   many :fields
   

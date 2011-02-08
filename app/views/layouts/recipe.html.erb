@@ -6,10 +6,33 @@
 <aside id='sidebar'>
   <p>Welcome to the recipe creator. It's
   a bit daunting at first, but there will
-  be documentation (someday).</p>
+  be better documentation (someday).</p>
   
-  <p>Keep an eye on the <%= link_to 'wiki', 'http://github.com/intridea/rails_wizard/wiki/Recipes', :target => '_github' %> for future documentation developments.</p>
+  <p>All recipes are placed in a moderation
+  queue for approval (can't have untested
+  code running on people's computers!).</p>
+  
+  <p>There's a little bit of info on the <%= link_to 'wiki', 'http://github.com/intridea/rails_wizard/wiki/Recipes', :target => '_github' %>, stay tuned there for future documentation developments.</p>
+  
+  <% if @pending_recipes.any? %>
+  <aside class='recipe_listing'>
+    <h1>Your Pending Recipes</h1>
+    <ul>
+      <%= render :partial => 'recipes/listing', :collection => @pending_recipes %>
+    </ul>
+  </aside>
+  <% end %>
+
+  <% if @recipes.any? %>
+  <aside class='recipe_listing'>
+    <h1>Your Approved Recipes</h1>
+    <ul>
+      <%= render :partial => 'recipes/listing', :collection => @recipes %>
+    </ul>
+  </aside>
+  <% end %>
 </aside>
+
 <h1 id='heading'><%= @heading || "A Rocket-Fueled Kick in the App" %></h1>
 <section id='main'>
   <%= yield %>

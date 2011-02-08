@@ -1,3 +1,4 @@
+<% unless signed_in? %>
 <% content_for :before_content do%>
   <aside id='intro'>
     <h1>Give Your App a Rocket-Fueled Kickstart</h1>
@@ -11,6 +12,7 @@
     
     <p>All you have to do is choose from the various options below and click <b>"Create Template"</b> at the bottom of the page. We'll automatically build a custom Rails template and give you the command-line instructions you need to get it up and running.</p>
   </aside>
+<% end %>
 <% end %>
 
 <%= form_for template, :url => templates_path do |f| %>

@@ -154,16 +154,19 @@ h1, h2, h3, h4
           color: #bdf
 
 #sidebar
-  width: 300px
+  width: 270px
   float: left
   +box-shadow(2px,0,7px,rgba(0,0,0,0.2))
   +border-bottom-right-radius(10px)
+  +vertical-gradient(#333,#111)
+  color: #eee
+  padding: 10px 15px
   p a
     color: white
-  ul
+  > ul
     margin: 0
     padding: 0
-  li
+  > ul > li
     list-style: none
     a
       display: block
@@ -212,13 +215,6 @@ h1, h2, h3, h4
         color: #5ac        
       &:hover
         background: #f5faff
-aside#sidebar
-  +vertical-gradient(#911,#711)
-  color: white 
-  border: 1px solid #611
-  padding-top: 15px
-  p
-    margin: 0 15px 15px
 
 #main
   margin: 0 15px 15px 315px
@@ -248,11 +244,13 @@ aside#sidebar
     
 #heading
   margin: 0 15px 0 315px
-  +vertical-gradient(#acd,#8ab)
+  +vertical-gradient(#333,#111)
+  text-shadow: 2px 2px 4px black
   +box-shadow(0,1px,7px,rgba(0,0,0,0.4))
   padding: 12px 15px
-  color: #256
+  color: #eee
   z-index: 100
+  font-size: 22px
   &.fill
     margin: 0 25px 0
   em
@@ -327,8 +325,12 @@ input, select, textarea
   &.text
     width: 97%
     input
+      +vertical-gradient(#111,#222,#222)
+      +box-shadow(0,0,4px,black inset)
+      color: #eee
+      border: 0
       font-size: 18px
-      padding: 4px 7px
+      padding: 6px 9px
   &.submit
     border: 0
     text-align: right
@@ -351,12 +353,16 @@ input, select, textarea
       margin-top: 6px
       margin-right: 6px
   textarea
-    width: 550px
+    width: 520px
     padding: 15px
     font-size: 18px
     height: 100px
     border: 1px solid #ddd
-    +box-shadow(1px,1px,3px,rgba(0,0,0,0.1))
+    +box-shadow(1px,1px,3px,rgba(0,0,0,0.1) inset)
+    background: #161616
+    border: 1px solid #111
+    +border-radius(5px)
+    color: #eee
       
 form .field.submit input, a.button
   display: inline-block
@@ -579,3 +585,23 @@ table.tabular
     margin-bottom: 0
     line-height: 150%
     font-size: 18px
+
+.recipe_listing
+  h1
+    font-size: 14px
+    padding: 5px 8px
+    background: black
+  ul
+    list-style: none
+    padding: 0
+    margin: 0
+  li
+    font-size: 12px
+    padding: 4px 8px
+  li
+  
+pre code
+  display: block
+  padding: 10px
+  background: #111
+  border: 1px solid black

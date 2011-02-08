@@ -30,6 +30,7 @@
             <b><%= current_user.name %></b>
           <% end %>
           
+          <%= link_to 'Submit a Recipe', new_recipe_path %>
           <%= link_to 'Sign Out', sign_out_path %>
           </div>
         <% else %>
