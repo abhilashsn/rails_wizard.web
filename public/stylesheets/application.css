@@ -890,6 +890,9 @@ table.tabular {
 
 pre code {
   display: block;
-  padding: 10px;
   background: #111111;
-  border: 1px solid black; }
+  border: 1px solid black;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  overflow-x: auto; }
