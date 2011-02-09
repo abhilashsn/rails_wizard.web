@@ -3,11 +3,17 @@
 <head>
   <title>RailsWizard</title>
   <%= generate_toc(@toc) %>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
   <%= include_javascripts :app %>
   <%= include_stylesheets :app %>
   <%= csrf_meta_tag %>
   <%= content_for :head %>
+  <script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/5.16/styles/ir_black.min.css">
+  <script type="text/javascript" charset="utf-8">
+  hljs.tabReplace = '  ';
+  hljs.initHighlightingOnLoad();
+  </script>
 </head>
 <body>
   <%= render "layouts/flash", :flash => flash %>

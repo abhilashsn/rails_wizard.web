@@ -735,6 +735,9 @@ ul.recipe_list {
       margin: 0; }
 
 aside.flash {
+  position: fixed;
+  top: 0;
+  width: 100%;
   color: white;
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -745,7 +748,7 @@ aside.flash {
   background-image: -moz-linear-gradient(top, #555555, #222222);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#555555', endColorstr='#222222');
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#555555', endColorstr='#222222')";
-  padding: 8px 12px;
+  padding: 8px 0;
   font-size: 14px;
   text-align: center; }
   aside.flash.alert {
