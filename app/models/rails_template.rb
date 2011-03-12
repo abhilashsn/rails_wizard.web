@@ -13,11 +13,8 @@ class RailsTemplate
   
   scope :listed, :listed => true
   scope :recent, :order => [[:updated_at, -1]]
-  
-  RECIPE_FIELDS = %w(orm unit_testing integration_testing javascript authentication templating css)
-  RECIPE_FIELDS.each{|f| key f, String}
 
-  key :recipes, Array  
+  key :recipes, Array, :typecast => RailsWizard::Recipe
   key :custom_code, String
   
   attr_protected :user, :user_id

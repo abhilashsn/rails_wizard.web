@@ -18,6 +18,7 @@
 <body>
   <%= render "layouts/flash", :flash => flash %>
   <header id='top'>
+      <%= link_to image_tag('/images/intridea.png', :alt => 'built by Intridea'), 'http://intridea.com', :target => '_blank', :id => 'intridea' %>
       <h1><%= link_to 'RailsWizard', '/' %></h1>
       <aside id='user_bar'>
         <% if signed_in? %>

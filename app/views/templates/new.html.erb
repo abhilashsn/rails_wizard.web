@@ -1,6 +1,6 @@
 <%= form_for template, :url => templates_path do |f| %>
   <header>
-    <h1>Your Recipe</h1>
+    <h1>Your Template <small>Just click recipes from the list to add them to your template.</small></h1>
     <button type='submit'>Create Template &raquo;</button>
   </header>
 
@@ -23,11 +23,16 @@
     <li class='<%= recipe.category %>' data-name="<%= recipe.name.downcase %>" data-category='<%= recipe.category %>'>
       <%= hidden_field_tag "template[recipes][]", recipe.key %>
       <b><%= recipe.name %></b>
-      <span><%= recipe.description %></span>
     </li>
   <% end %>
   </ul>
 </section>
+
+<ul id='help_text'>
+  <% for recipe in RailsWizard::Recipes.list_classes %>
+  <li class='<%= recipe.category %>' id='help_<%= recipe.key %>'><%= recipe.description %></li>
+  <% end %>
+</ul>
 
 <script type='text/javascript'>
 $(function() {
@@ -44,26 +49,44 @@ $(function() {
     return false;
   });
 
-  $('#unused_recipes').delegate('li:not(.disabled)','click',function() {
+  $('ul.recipes li').live('recipe:add', function() {
     $('#unused_recipes').isotope('remove',$(this)).isotope('reLayout').isotope({filter:'*'});
     $('#selected_recipes').isotope('insert', $(this).clone());
     $('#unused_recipes').find('li[data-category=' + $(this).attr('data-category') + ']').addClass('disabled');
     $('#name_filter').val('');
+    $('#help_text li').removeClass('visible');
+  });
+
+  $('ul.recipes li').live('recipe:remove', function() {
+    $('#selected_recipes').isotope('remove',$(this)).isotope('reLayout');
+    $('#unused_recipes').isotope('insert', $(this).clone());
+    $('#unused_recipes').find('li[data-category=' + $(this).attr('data-category') + ']').removeClass('disabled');
+    $('#help_text li').removeClass('visible');  
+  });
+
+  $('#unused_recipes').delegate('li:not(.disabled)','click',function() {
+    $(this).trigger('recipe:add');
     return false;
   });
 
   $('#selected_recipes').delegate('li:not(.disabled)','click',function() {
-    $('#selected_recipes').isotope('remove',$(this)).isotope('reLayout');
-    $('#unused_recipes').isotope('insert', $(this).clone());
-    $('#unused_recipes').find('li[data-category=' + $(this).attr('data-category') + ']').removeClass('disabled');
+    $(this).trigger('recipe:remove');
     return false;
   });
 
   setInterval(function() {
     $('#recipe_picker').css('margin-top', $('#new_rails_template').height() + 20);
-  });  
+  });
 
-  $('#name_filter').keydown(function() {
+  $('ul.recipes li').live('mouseover', function() {
+    $('#help_' + $(this).find('input').val()).addClass('visible');
+  });
+  
+  $('ul.recipes li').live('mouseout', function() {
+    $('#help_' + $(this).find('input').val()).removeClass('visible');  
+  })
+
+  $('#name_filter').keyup(function() {
     if ($(this).val() == '')
       var filter = "*"
     else
@@ -74,15 +97,24 @@ $(function() {
 
   var letters = "abcdefghijklmnopqrstuvwxyz".split('');
   $(document).keydown(function(e) {
-    var input = $('#name_filter')    
+    if ($(e.target).is('input, textarea')) return true;
+
+    var input = $('#name_filter')
     if (e.keyCode >= 65 && e.keyCode <= 90) {
       input.val(input.val() + letters[e.which - 65]);
-      input.trigger('keydown');
-    } 
-    else if (e.keyCode === 8) {
+      input.trigger('keyup');
+    } else if (e.keyCode === 8) {
       input.val(input.val().substring(0, input.val().length - 1));
-      input.trigger('keydown')
+      input.trigger('keyup');
       return false;
+    } else if (e.keyCode === 13) {
+      activeRecipes = $('#unused_recipes li:not(.isotope-hidden, .disabled)');
+      if (activeRecipes.length == 1) {
+        activeRecipes.click();
+      }
+    } else if (e.keyCode === 27) {
+      input.val('');
+      $('#unused_recipes').isotope({filter:'*'});    
     }
   });
 });

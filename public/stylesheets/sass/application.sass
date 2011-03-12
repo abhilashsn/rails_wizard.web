@@ -21,16 +21,17 @@ body
   width: 100%
   height: 50px
   background: #111
+  a#intridea
+    float: right
   h1
     float: left
     padding: 0 10px
     a
-      color: #0cc
-      font-weight: bold
-      letter-spacing: -0.05em
-      font-size: 28px
-      line-height: 50px
-      text-decoration: none
+      display: block
+      width: 200px
+      height: 50px
+      background: url(/images/logo.png)
+      text-indent: -999em
 #sign_in
   float: right
   font-size: 12px
@@ -121,20 +122,29 @@ $c_deployment: #80f
       color: #f0a
       font-size: 18px
       float: left
+      small
+        font-size: 12px
+        color: #aaa
     button
       float: right
       background: #111
       cursor: pointer
       color: #0cc
+      background: #033
       border: 0
       font-family: sans-serif
       font-size: 14px
       padding: 4px 8px
+      +animate("background-color, color", 0.25s)
+      &:hover, &:focus
+        background: #0cc
+        color: #111
     margin: 0 10px
 
 #recipe_picker
   margin-top: 90px
   +animate(margin, 0.5s)
+  margin-bottom: 70px
 
 ul.recipes
   li
@@ -148,25 +158,39 @@ ul.recipes
       display: block
       padding: 6px 12px
       font-weight: bold
-    span
-      display: none
-    &.orm
-      background: $c_orm
-    &.templating
-      background: $c_templating
-    &.unit_testing
-      background: $c_unit_testing
-    &.javascript
-      background: $c_javascript
-    &.integration_testing
-      background: $c_integration_testing
-    &.css
-      background: $c_css
-      color: black
-    &.authentication
-      background: $c_authentication
-    &.deployment
-      background: $c_deployment
-    &.disabled
-      color: #ccc
-      background: #666
+
+ul.recipes li, #help_text li
+  &.orm
+    background: $c_orm
+  &.templating
+    background: $c_templating
+  &.unit_testing
+    background: $c_unit_testing
+  &.javascript
+    background: $c_javascript
+  &.integration_testing
+    background: $c_integration_testing
+  &.css
+    background: $c_css
+    color: black
+  &.authentication
+    background: $c_authentication
+  &.deployment
+    background: $c_deployment
+  &.disabled
+    color: #ccc
+    background: #666
+
+#help_text
+  li
+    z-index: 1000
+    position: fixed
+    bottom: -100px
+    left: 0
+    width: 100%
+    color: white
+    +vendor("box-sizing","border-box")
+    padding: 10px 15px
+    +animate(bottom, 0.5s)
+    &.visible
+      bottom: 0px
