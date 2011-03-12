@@ -1,613 +1,172 @@
 @import css3.sass
 @import mixins.sass
-
-$helvetica = "\"Helvetica Neue\", Helvetica, Arial, sans-serif"
-
-body, html
-  min-height: 100%
+@import reset.sass
 
 body
-  padding: 0
-  margin: 0
-  font-family: $helvetica
-  background: #222
+  font-family: sans-serif
+  background: #282828
 
-a
-  color: #9ce
-  
-section, header, footer, nav, aside, hgroup
-  display: block
-
-a img
-  border: 0
-  
-#top
-  width: 100%
-  z-index: 9999
-  margin: 0
-  padding-top: 15px
-  height: 60px
-  +vertical-gradient(#666, #222)
-  nav
-    display: none
-    float: left
-    margin-left: 15px
-    margin-top: -8px
-    ul
-      padding: 0
-    li
-      display: inline-block
-      list-style: none
-      margin-right: 8px
-    a, img
-      vertical-align: middle
-    a.button
-      +vertical-gradient(#fff,#ccc)
-      display: inline-block
-      padding: 8px 12px
-      border: 1px solid #ddd
-      font-weight: bold
-      font-size: 14px
-      color: #333
-      text-decoration: none
-      +box-shadow(1px,1px,3px,rgba(0,0,0,0.25))
-      +border-radius(5px)
-      &:hover
-        +vertical-gradient(#fff, #ddd)
-  section
-    padding: 0 20px
-    width: 960px
-    margin: 0 auto
-  h1
-    margin: 0
-    float: left
-    z-index: 1000000
-  #user_bar
-    margin-left: 300px
-    padding-top: 10px
-    position: relative
-    font-size: 12px
-    #signed_in, #sign_in
-      margin-top: 15px
-    #signed_in
-      float: right
-      +vertical-gradient(#444, #222, #333)
-      +border-radius(5px)
-      +box-shadow(1px,1px,5px,black)
-      padding: 4px 8px
-      a
-        color: #ddd
-        margin: 0 5px        
-        text-decoration: none
-        &.admin
-          color: #fc0
-        &:hover
-          color: #fff
-    #sign_in
-      float: right
-      display: inline-block
-      +vertical-gradient(#444, #222, #333)
-      +border-radius(5px)
-      +box-shadow(1px,1px,5px,black)
-      padding: 4px 8px
-      font-weight: bold
-      color: #ddd
-      text-decoration: none
-      &:hover
-        color: white
-        +box-shadow(0,0,8px,rgba(0,128,255,0.7))
-        text-shadow: 0 0 6px rgba(0,128,255,0.7)
-      img
-        vertical-align: top
-        margin-right: 5px
-        
-
-#wrapper
-  width: 960px
-  padding: 0 60px
-  margin: 0 auto
-
-h1, h2, h3, h4
-  letter-spacing: -0.05em
-  
 #content
-  background: #111
-  margin-top: 20px
-  +border-radius(5px)
-  +box-shadow(1px,1px,3px,rgba(0,0,0,0.3))
-  padding-bottom: 15px
-  +clearfix
-  > header
-    +vertical-gradient(#49a,#278)
-    padding: 8px 14px
-    +border-top-radius(5px)
-    +clearfix
-    +box-shadow(0,0,10px,#3af)
-    iframe
-      margin: 5px 0 0 10px
-    h1
-      color: white
-      font-size: 26px
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.5)
-      margin: 0
-      float: left
-    a.button
-      +vertical-gradient(#555,#222)
-      border: 1px solid #444
-      color: white
-      margin-left: 10px
-      text-shadow: 0 0 0 transparent
-      font-size: 14px
-      vertical-align: top
-      +box-shadow(1px,1px,2px,black)
-      &:hover
-        +vertical-gradient(#666,#333)
-        
-    h2
-      float: right
-      font-size: 18px
-      margin: 0
-      line-height: 30px
-      a
-        color: #ddd
-        font-weight: normal
-        text-decoration: none
-        &:hover
-          color: #bdf
+  padding: 55px 20px 20px
 
-#sidebar
-  width: 270px
-  float: left
-  +box-shadow(2px,0,7px,rgba(0,0,0,0.2))
-  +border-bottom-right-radius(10px)
-  +vertical-gradient(#333,#111)
-  color: #eee
-  padding: 10px 15px
-  p a
-    color: white
-  > ul
-    margin: 0
-    padding: 0
-  > ul > li
-    list-style: none
-    a
-      display: block
-      padding: 7px 12px
-      border-top: 1px solid white
-      border-bottom: 1px solid #ddd
-      +vertical-gradient(#fff, #f5f5f5)
-      color: #444
-      text-decoration: none
-      font-size: 16px
-      font-weight: bold
-      b
-        display: block
-      em
-        display: block
-        font-size: 12px
-        color: #aaa
-        font-weight: normal
-      &:hover
-        +vertical-gradient(#eef5ff, #cef)
-        border-bottom: 1px solid #acf
-        border-top: 1px solid #acf
-    &:last-child a
-      +border-bottom-right-radius(10px)
-    a.disabled
-      +vertical-gradient(#eee,#ddd)
-      color: #777
-      border-bottom: 1px solid #ccc
-      border-top: 1px solid #eee
-      cursor: default
-    a.completed
-      background: #dfd
-      border-bottom-color: #ada
-      border-top-color: #dfd
-      color: #282
-      em
-        color: #4a4
-      &:hover
-        background: #efe
-    a.current
-      background: #eef5ff
-      color: #38a
-      border-bottom-color: #bde
-      border-top-color: white
-      em
-        color: #5ac        
-      &:hover
-        background: #f5faff
-
-#main
-  margin: 0 15px 15px 315px
-  background: #222
-  color: #eee
-  padding: 15px 25px 25px
-  +box-shadow(0,1px,7px,rgba(0,0,0,0.3))
-  +border-bottom-radius(10px)
-  &.fill
-    margin: 25px 25px 15px
-    +border-top-radius(10px)
-  h1, h2, h3, h4
-    font-weight: normal
-    margin: 15px 0 15px
-    color: #555
-    letter-spacing: 0
-  h1
-    font-size: 22px
-    color: white
-    +vertical-gradient(#333, #111)
-    +box-shadow(1px,1px,8px,rgba(0,0,0,0.4))
-    +border-left-radius(20px)
-    padding: 6px 17px
-    margin: 15px -25px 15px -45px
-  p
-    line-height: 150%
-    
-#heading
-  margin: 0 15px 0 315px
-  +vertical-gradient(#333,#111)
-  text-shadow: 2px 2px 4px black
-  +box-shadow(0,1px,7px,rgba(0,0,0,0.4))
-  padding: 12px 15px
-  color: #eee
-  z-index: 100
-  font-size: 22px
-  &.fill
-    margin: 0 25px 0
-  em
-    font-weight: normal
-    font-style: normal
-
-button, input[type=submit]
-  cursor: pointer
-  
-#start_form
-  padding: 10px
-  +border-radius(5px)
-  +vertical-gradient(#aca, #7a7)
-  border: 1px solid #696
-  text-align: center
-  input
-    font-size: 22px
-    padding: 10px
-    height: 30px
-    font-family: $helvetica
-    width: 440px
-    +border-radius(5px)
-    +vertical-gradient(#fff, #eee)
-  button
-    padding: 12px 15px
-    font-family: $helvetica
-    +vertical-gradient(#0a0, #050)
-    +border-radius(5px)
-    color: white
-    font-size: 22px
-    border: 0
-    +box-shadow(1px, 1px, 5px, rgba(0,0,0,0.4))
-    &:hover
-      +vertical-gradient(#0c0, #070)
-
-input, select, textarea
-  font-family: $helvetica
-   
-.field
-  padding: 10px
-  margin: 0 5px 5px 0
-  border: 1px solid #181818
-  +box-shadow(1px,1px,1px,#282828)
-  +border-radius(4px)
-  width: 100%
-  +vertical-gradient(#282828,#222)
-  +animate("background-color,-webkit-box-shadow,-moz-box-shadow",0.25s)
-  &:hover, &.checked, &.focused
-    +vertical-gradient(rgba(255,255,255,0.1),rgba(0,0,0,0.1), transparent)
-  &.checked
-    background-color: #278
-    border-color: #49a
-    +box-shadow(0,0,15px,rgba(0,130,255,0.5))
-  &:hover, &.focused
-    background-color: #080808
-  &.disabled
-    opacity: 0.5
-    .help
-      color: #aaa
-  label
-    display: block
-    margin-bottom: 5px
-    color: #fff
-    text-shadow: 1px 1px 2px black
-    font-size: 18px
-    &.help
-      font-size: 12px
-      color: #acc
-      text-shadow: 1px 1px 1px rgba(0,30,60,0.5)
-      margin-top: -3px
-      margin-bottom: 5px
-  &.text
-    width: 97%
-    input
-      +vertical-gradient(#111,#222,#222)
-      +box-shadow(0,0,4px,black inset)
-      color: #eee
-      border: 0
-      font-size: 18px
-      padding: 6px 9px
-  &.submit
-    border: 0
-    text-align: right
-    margin: 10px 0
-    +vertical-gradient(#222,#111)
-    +border-bottom-radius(8px)
-    border: 0
-  &.radio, &.check
-    cursor: pointer
-    display: inline-block
-    vertical-align: top
-    width: 400px
-    padding: 10px
-    margin: 0 5px 5px 0
-    label
-      cursor: pointer
-  &.check
-    input
-      float: left
-      margin-top: 6px
-      margin-right: 6px
-  textarea
-    width: 520px
-    padding: 15px
-    font-size: 18px
-    height: 100px
-    border: 1px solid #ddd
-    +box-shadow(1px,1px,3px,rgba(0,0,0,0.1) inset)
-    background: #161616
-    border: 1px solid #111
-    +border-radius(5px)
-    color: #eee
-      
-form .field.submit input, a.button
-  display: inline-block
-  vertical-align: middle
-  +vertical-gradient(#156, #045)
-  +box-shadow(1px,1px,4px,rgba(0,40,100,0.2))
-  +border-radius(5px)
-  text-shadow: 1px 1px 3px black
-  padding: 8px 14px
-  color: white
-  font-weight: bold
-  font-size: 16px
-  border: 1px solid #156
-  text-decoration: none
-  &:hover, &:focus
-    +vertical-gradient(#cef, #acd)
-  &.grey
-    +vertical-gradient(#eee,#ccc)
-    color: #444
-    text-shadow: 1px 1px 1px white
-    border: 1px solid #999
-    &:hover, &:focus
-      +vertical-gradient(#fff,#ddd)
-          
-div.bespin
-  +box-shadow(1px,1px,3px,black)
-  
 #bottom
-  padding: 10px 0 30px
-  font-size: 14px
-  color: #888
-  text-align: center
-  text-shadow: 1px 1px 1px black
-  a
-    color: #aaa
-    font-weight: bold
-    
-#rails_command
-  font-family: Monaco, "Courier New", monospace
-  font-size: 14px
-  text-align: center
-  +vertical-gradient(#222,black)
-  padding: 15px
-  border: 1px solid black
-  +border-radius(3px)
-  color: white
-  
-#app_name
-  color: #ffc
-  font-weight: bold
-  
-input.mono
-  font-family: monospace
-  
-ul.recipe_list
-  padding: 0
-  margin: 0
-  li
-    margin: 0
-    list-style: none
-    padding: 10px
-    color: #eee
-    b
-      color: #fff
-      margin-right: 5px
-    &:last-child
-      border: 0
-    &.odd
-      background: #181818
-      +border-radius(5px)
-      
-#main article.template_listing
-  padding: 15px 0
-  border-bottom: 1px solid #ddd
-  &:last-child
-    border: 0
-  h1
-    margin: 0 0 5px 0
-    font-size: 18px
-    font-weight: bold
-    color: #333
-    border: 0
-    a
-      color: #fff
-      text-decoration: none
-      display: inline-block
-    a.edit
-      font-size: 11px
-      font-weight: normal
-      display: inline-block
-      padding: 3px 6px
-      margin: 2px 0
-      vertical-align: top
-      border: 1px solid #ddd
-      +border-radius(3px)
-      +vertical-gradient(#fff,#ddd)
-      color: #333
-      &:hover
-        background: white
-      margin-bottom: 3px
-  div.description
-    font-size: 14px
-    line-height: 140%
-    color: #666
-    p
-      margin: 0 0 8px 0
-      &:last-child
-        margin: 0
-  ul.recipes
-    float: right
-    display: inline-block
-    padding: 0
-    margin: 0 0 0 5px
-    li
-      list-style: none
-      display: inline-block
-      a
-        display: block
-        padding: 3px 6px
-        font-size: 11px
-        +vertical-gradient(#cef, #acd)
-        color: #367
-        text-decoration: none
-        margin-left: 3px
-        +border-radius(3px)
-        
-#template_description
-  font-size: 18px
-  color: #aaa
-  padding: 20px 25px 0
-  p
-    margin: 0 0 10px 0
-    line-height: 150%
-    &:last-child
-      margin: 0
-      
-aside.flash
-  position: fixed
-  top: 0
-  width: 100%
-  color: white
-  +box-shadow(0,1px,3px,rgba(0,0,0,0.2))
-  +vertical-gradient(#555,#222)
-  padding: 8px 0
-  font-size: 14px
-  text-align: center
-  &.alert
-    +vertical-gradient(#911,#711)
-    
-table.tabular
-  width: 100%
-  border-collapse: collapse
-  font-size: 14px
-  th, td
-    text-align: left
-    padding: 6px 10px
-  thead
-    th
-      text-align: left
-      color: #333
-      +vertical-gradient(#eee, #ccc)
-  tr.odd
-    td, th
-      background: #eef5ff
-      
-#toc
-  position: fixed
-  top: 94px
-  left: -200px
-  +box-shadow(0,0,10px,black)
-  h1
-    font-size: 14px
-    position: absolute
-    width: 120px
-    text-align: center
-    top: 55px
-    left: 145px
-    margin: 0
-    +rotate(90)
-    color: white
-    +vertical-gradient(#333,#111)
-    padding: 5px 8px
-    +border-top-radius(5px)
-    +box-shadow(0,0,5px,black)
-    text-shadow: 1px 1px 2px black
-    opacity: 0.7
-  nav
-    width: 200px
-    background: #111
-    a
-      color: white
-      display: block
-      text-decoration: none
-      padding: 9px
-      font-size: 12px
-      +vertical-gradient(#333,#222)
-      &:hover
-        color: #bde
+  display: none
 
-#toc:hover
-  left: 0px
-  h1
-    opacity: 1.0
-  
-#toc
-  +animate(left,0.25s)
-  
-#intro
-  +vertical-gradient(#111,#222)
-  +border-radius(10px)
-  +box-shadow(0,0,20px,black)
-  color: white
-  padding: 20px
-  text-shadow: 1px 1px 3px black
-  margin: 20px 0 30px
-  h1
-    color: #8df
-    text-align: center
-    margin: 0 0 15px 0
-    font-size: 36px
-    font-weight: normal
-  p
-    margin-bottom: 0
-    line-height: 150%
-    font-size: 18px
-
-.recipe_listing
-  h1
-    font-size: 14px
-    padding: 5px 8px
-    background: black
-  ul
-    list-style: none
-    padding: 0
-    margin: 0
-  li
-    font-size: 12px
-    padding: 4px 8px
-  li
-  
-pre code
+#top
+  z-index: 1000
+  position: fixed
   display: block
+  top: 0
+  left: 0
+  width: 100%
+  height: 50px
   background: #111
-  border: 1px solid black
+  h1
+    float: left
+    padding: 0 10px
+    a
+      color: #0cc
+      font-weight: bold
+      letter-spacing: -0.05em
+      font-size: 28px
+      line-height: 50px
+      text-decoration: none
+#sign_in
+  float: right
+  font-size: 12px
+  display: inline-block
+  +vertical-gradient(#444, #222, #333)
   +border-radius(5px)
-  overflow-x: auto
+  +box-shadow(1px,1px,5px,black)
+  padding: 4px 8px
+  font-weight: bold
+  color: #ddd
+  text-decoration: none
+  &:hover
+    color: white
+    +box-shadow(0,0,8px,rgba(0,128,255,0.7))
+    text-shadow: 0 0 6px rgba(0,128,255,0.7)
+  img
+    vertical-align: middle
+    margin-right: 5px
+  display: none
+  
+
+$c_orm: #f70
+$c_templating: #1aa
+$c_unit_testing: #c08
+$c_javascript: #3a0
+$c_integration_testing: #c00
+$c_css: #fc0
+$c_authentication: #04c
+$c_deployment: #80f
+
+#recipe_filters
+  background: #181818
+  padding: 10px
+  margin: 0 -20px 15px
+  #name_filter
+    float: right
+    margin-top: -5px
+    background: black
+    border: 0
+    font-size: 14px
+    padding: 4px 8px
+    border: 1px solid #444
+    color: #0cc
+  a
+    display: inline-block
+    font-weight: bold
+    font-size: 14px
+    margin: 0 3px
+    text-decoration: none
+    color: white
+    &.orm
+      color: $c_orm
+    &.templating
+      color: $c_templating
+    &.unit_testing
+      color: $c_unit_testing
+    &.javascript
+      color: $c_javascript
+    &.integration_testing
+      color: $c_integration_testing
+    &.css
+      color: $c_css
+    &.authentication
+      color: $c_authentication
+    &.deployment
+      color: $c_deployment
+
+#new_rails_template
+  position: fixed
+  top: 50px
+  left: 0
+  width: 100%
+  padding: 5px 0
+  background: #181818
+  border-bottom: 2px
+  z-index: 999
+  ul.recipes
+    clear: both
+    margin: 0 10px
+    li
+      font-size: 18px
+      b
+        padding: 4px 8px
+  header
+    height: 30px
+    h1
+      line-height: 30px
+      color: #f0a
+      font-size: 18px
+      float: left
+    button
+      float: right
+      background: #111
+      cursor: pointer
+      color: #0cc
+      border: 0
+      font-family: sans-serif
+      font-size: 14px
+      padding: 4px 8px
+    margin: 0 10px
+
+#recipe_picker
+  margin-top: 90px
+  +animate(margin, 0.5s)
+
+ul.recipes
+  li
+    font-size: 36px
+    margin: 5px
+    color: white   
+    +box-shadow(5px,5px,0,rgba(0,0,0,0.3))
+    background: #111
+    cursor: pointer
+    b
+      display: block
+      padding: 6px 12px
+      font-weight: bold
+    span
+      display: none
+    &.orm
+      background: $c_orm
+    &.templating
+      background: $c_templating
+    &.unit_testing
+      background: $c_unit_testing
+    &.javascript
+      background: $c_javascript
+    &.integration_testing
+      background: $c_integration_testing
+    &.css
+      background: $c_css
+      color: black
+    &.authentication
+      background: $c_authentication
+    &.deployment
+      background: $c_deployment
+    &.disabled
+      color: #ccc
+      background: #666

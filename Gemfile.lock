@@ -46,6 +46,13 @@ GIT
       activesupport (~> 3.0.0)
       plucky (~> 0.3.6)
 
+PATH
+  remote: /Users/mbleigh/rails3/rails_wizard
+  specs:
+    rails_wizard (0.0.1)
+      activesupport (~> 3.0.0)
+      i18n
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -177,5 +184,6 @@ DEPENDENCIES
   omniauth!
   rails (= 3.0.1)
   rails3-generators
+  rails_wizard!
   rspec-rails (~> 2.0.1)
   tweet-button

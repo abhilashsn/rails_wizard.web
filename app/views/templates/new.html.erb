@@ -1,26 +1,89 @@
-<% unless signed_in? %>
-<% content_for :before_content do%>
-  <aside id='intro'>
-    <h1>Give Your App a Rocket-Fueled Kickstart</h1>
-
-    <p>Rails Wizard is a web-based wizard to walk you through the first steps of 
-    creating a Rails application. The first hours of a Rails project can be 
-    frustrating: you feel as though you've done all of this before in a slightly
-    different context. Rails Wizard aims to get all of the repetitive startup
-    cost out of the development process, letting you focus on getting awesome
-    fast.</p>
-    
-    <p>All you have to do is choose from the various options below and click <b>"Create Template"</b> at the bottom of the page. We'll automatically build a custom Rails template and give you the command-line instructions you need to get it up and running.</p>
-  </aside>
-<% end %>
-<% end %>
-
 <%= form_for template, :url => templates_path do |f| %>
-  <% for step in RailsTemplate::STEPS %>
-    <%= render "steps/#{step}", :f => f %>
-  <% end %>
-  
-  <div class='field submit'>
-    <%= f.submit 'Create Template' %>    
-  </div>
+  <header>
+    <h1>Your Recipe</h1>
+    <button type='submit'>Create Template &raquo;</button>
+  </header>
+
+  <ul class='recipes' id='selected_recipes'>
+  </ul>
 <% end %>
+
+<section id='recipe_picker'>
+<nav id='recipe_filters'>
+    <input type='text' id='name_filter' placeholder='Filter by name...'/>
+
+    <%= link_to "all", "#", "data-filter" => "*" %>
+    <% RailsWizard::Recipes.categories.each do |category| %>
+      <%= link_to category.gsub('_',' '), "#", :class => category, "data-filter" => "[data-category=#{category}]" %>
+    <% end %>
+  </nav>
+
+  <ul class='recipes' id='unused_recipes'>
+  <% for recipe in RailsWizard::Recipes.list_classes %>
+    <li class='<%= recipe.category %>' data-name="<%= recipe.name.downcase %>" data-category='<%= recipe.category %>'>
+      <%= hidden_field_tag "template[recipes][]", recipe.key %>
+      <b><%= recipe.name %></b>
+      <span><%= recipe.description %></span>
+    </li>
+  <% end %>
+  </ul>
+</section>
+
+<script type='text/javascript'>
+$(function() {
+  $('ul.recipes').isotope({
+    itemSelector:'li',
+    layoutMode:'fitRows',
+    animationEngine:'best-available'
+  });
+
+  $('#recipe_filters a').click(function() {
+    $('#unused_recipes').isotope({
+      filter:$(this).attr('data-filter')
+    }); 
+    return false;
+  });
+
+  $('#unused_recipes').delegate('li:not(.disabled)','click',function() {
+    $('#unused_recipes').isotope('remove',$(this)).isotope('reLayout').isotope({filter:'*'});
+    $('#selected_recipes').isotope('insert', $(this).clone());
+    $('#unused_recipes').find('li[data-category=' + $(this).attr('data-category') + ']').addClass('disabled');
+    $('#name_filter').val('');
+    return false;
+  });
+
+  $('#selected_recipes').delegate('li:not(.disabled)','click',function() {
+    $('#selected_recipes').isotope('remove',$(this)).isotope('reLayout');
+    $('#unused_recipes').isotope('insert', $(this).clone());
+    $('#unused_recipes').find('li[data-category=' + $(this).attr('data-category') + ']').removeClass('disabled');
+    return false;
+  });
+
+  setInterval(function() {
+    $('#recipe_picker').css('margin-top', $('#new_rails_template').height() + 20);
+  });  
+
+  $('#name_filter').keydown(function() {
+    if ($(this).val() == '')
+      var filter = "*"
+    else
+      var filter = "[data-name^=" + $(this).val() + "]"
+    
+    $('#unused_recipes').isotope({filter:filter}); 
+  });
+
+  var letters = "abcdefghijklmnopqrstuvwxyz".split('');
+  $(document).keydown(function(e) {
+    var input = $('#name_filter')    
+    if (e.keyCode >= 65 && e.keyCode <= 90) {
+      input.val(input.val() + letters[e.which - 65]);
+      input.trigger('keydown');
+    } 
+    else if (e.keyCode === 8) {
+      input.val(input.val().substring(0, input.val().length - 1));
+      input.trigger('keydown')
+      return false;
+    }
+  });
+});
+</script>

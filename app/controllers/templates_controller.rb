@@ -1,6 +1,4 @@
 class TemplatesController < ApplicationController
-  layout 'wizard'
-
   before_filter :template, :only => [:edit, :show, :destroy, :compile]
   before_filter do
     @page_title = template.name if template

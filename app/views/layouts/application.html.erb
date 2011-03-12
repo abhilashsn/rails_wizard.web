@@ -1,3 +1,53 @@
-<%= render "layouts/head" %>
-  <%= yield %>
-<%= render "layouts/foot" %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsWizard</title>
+  <%= generate_toc(@toc) %>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+  <%= include_javascripts :app %>
+  <%= include_stylesheets :app %>
+  <%= csrf_meta_tag %>
+  <%= content_for :head %>
+  <script src="http://yandex.st/highlightjs/5.16/highlight.min.js"></script>
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/5.16/styles/ir_black.min.css">
+  <script type="text/javascript" charset="utf-8">
+  hljs.tabReplace = '  ';
+  hljs.initHighlightingOnLoad();
+  </script>
+</head>
+<body>
+  <%= render "layouts/flash", :flash => flash %>
+  <header id='top'>
+      <h1><%= link_to 'RailsWizard', '/' %></h1>
+      <aside id='user_bar'>
+        <% if signed_in? %>
+          <div id='signed_in'>
+          <%= link_to user_path(current_user), :class => ('admin' if current_user.admin?) do %>
+            <b><%= current_user.name %></b>
+          <% end %>
+          
+          <%= link_to 'Submit a Recipe', new_recipe_path %>
+          <%= link_to 'Sign Out', sign_out_path %>
+          </div>
+        <% else %>
+          <%= link_to image_tag("/images/github.png") + "Sign in with GitHub", '/auth/github', :id => 'sign_in', :rel => 'nofollow' %>
+        <% end %>
+      </aside>
+  </header>
+  
+  <div id='wrapper'>
+    <section id="content">
+      <%= yield %>
+    </section>
+  </div>
+
+  <footer id='bottom'>
+    Copyright &copy; 2010-2011 Intridea Inc. Licensed under the MIT License.
+    <%= link_to 'Code', 'https://github.com/intridea/rails_wizard', :target => '_github' %>
+    <%= link_to 'Blog', 'http://blog.railswizard.org', :target => '_github' %>
+    <%= link_to 'Twitter', 'http://twitter.com/railswizard' %>
+    <%= link_to 'Feedback', 'http://github.com/intridea/rails_wizard/issues', :target => '_github' %>
+  </footer>
+</body>
+</html>
+

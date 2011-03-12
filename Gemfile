@@ -14,3 +14,5 @@ gem 'jammit'
 group :test, :development do
   gem 'rspec-rails', '~> 2.0.1'
 end
+
+gem 'rails_wizard', :path => File.dirname(__FILE__) + '/../rails_wizard'

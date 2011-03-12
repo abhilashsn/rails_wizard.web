@@ -3,7 +3,7 @@
 <head>
   <title>RailsWizard</title>
   <%= generate_toc(@toc) %>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
   <%= include_javascripts :app %>
   <%= include_stylesheets :app %>
   <%= csrf_meta_tag %>
@@ -22,7 +22,6 @@
       <h1><%= link_to image_tag('/images/logo.png', :alt => 'RailsWizard'), '/' %></h1>
       <nav>
         <ul>
-          <li><%= link_to image_tag('/images/rumble_vote.png', :alt => 'Vote for me in the 2010 Rails Rumble!'), "http://railsrumble.com/teams/the-lonely-intridean", :target => '_blank' %></li>
           <li><%= link_to 'Template Directory', templates_path, :class => 'button' %></li>
           <li><%= link_to 'About', 'http://github.com/intridea/rails_wizard/wiki', :target => '_github', :class => 'button' %></li>
           <!--<li><%= link_to 'Recipes', recipes_path %></li>-->

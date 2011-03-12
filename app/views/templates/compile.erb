@@ -34,6 +34,22 @@ recipes = template.values.flatten
 
 def say_recipe(name); say "\033[36m" + "recipe".rjust(10) + "\033[0m" + "    Running #{name} recipe..." end
 def say_wizard(text); say "\033[36m" + "wizard".rjust(10) + "\033[0m" + "    #{text}" end
+def ask_wizard(question)
+  say "\033[44m\033[36m" + "question".rjust(10) + "\033[0m" + "    #{question}"
+  gets.strip
+end
+def yes_wizard?(question)
+  answer = ask_wizard(question + " (y/n)")
+  case answer.downcase
+    when "yes", "y"
+      true
+    when "no", "n"
+      false
+    else
+      yes_wizard?(question)
+  end
+end
+def no_wizard?(question); !yes_wizard?(question) end
 
 @after_blocks = []
 def after_bundler(&block); @after_blocks << block; end
