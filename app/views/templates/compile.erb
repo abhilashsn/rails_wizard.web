@@ -29,8 +29,7 @@ Rails.application.config.generators do |g|
 end
 RUBY
 
-template = <%=raw RailsTemplate::RECIPE_FIELDS.inject({}){|h,f| h[f] = template.send(f); h}.inspect %>
-recipes = template.values.flatten
+recipes = <%=raw template.recipes.map(&:key).inspect %> 
 
 def say_recipe(name); say "\033[36m" + "recipe".rjust(10) + "\033[0m" + "    Running #{name} recipe..." end
 def say_wizard(text); say "\033[36m" + "wizard".rjust(10) + "\033[0m" + "    #{text}" end
@@ -54,10 +53,8 @@ def no_wizard?(question); !yes_wizard?(question) end
 @after_blocks = []
 def after_bundler(&block); @after_blocks << block; end
 
-<% RailsTemplate::RECIPE_FIELDS.each do |f| %>
-<% if r = Recipe.find_by_slug(template.send(f)) %>
-<%=raw r.compile rescue '' %>
-<% end %>
+<% template.recipes.each do |recipe| %>
+<%=raw recipe.compile rescue '' %>
 <% end %>
 
 <% if template.custom_code? %># >-----------------------------[ Custom Code ]-------------------------------<

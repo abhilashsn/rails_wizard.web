@@ -4,12 +4,11 @@
     <button type='submit'>Create Template &raquo;</button>
   </header>
 
-  <ul class='recipes' id='selected_recipes'>
-  </ul>
+  <%= render "recipes/list", :id => 'selected_recipes' %> 
 <% end %>
 
 <section id='recipe_picker'>
-<nav id='recipe_filters'>
+  <nav id='recipe_filters'>
     <input type='text' id='name_filter' placeholder='Filter by name...'/>
 
     <%= link_to "all", "#", "data-filter" => "*" %>
@@ -17,15 +16,9 @@
       <%= link_to category.gsub('_',' '), "#", :class => category, "data-filter" => "[data-category=#{category}]" %>
     <% end %>
   </nav>
+  
+  <%= render "recipes/list", :recipes => RailsWizard::Recipes.list_classes, :id => 'unused_recipes' %>
 
-  <ul class='recipes' id='unused_recipes'>
-  <% for recipe in RailsWizard::Recipes.list_classes %>
-    <li class='<%= recipe.category %>' data-name="<%= recipe.name.downcase %>" data-category='<%= recipe.category %>'>
-      <%= hidden_field_tag "template[recipes][]", recipe.key %>
-      <b><%= recipe.name %></b>
-    </li>
-  <% end %>
-  </ul>
 </section>
 
 <ul id='help_text'>
@@ -39,7 +32,11 @@ $(function() {
   $('ul.recipes').isotope({
     itemSelector:'li',
     layoutMode:'fitRows',
-    animationEngine:'best-available'
+    animationEngine:'best-available',
+    getSortData:{
+      name:function(recipe){ return recipe.attr('data-name'); }
+    },
+    sortBy:'name'
   });
 
   $('#recipe_filters a').click(function() {

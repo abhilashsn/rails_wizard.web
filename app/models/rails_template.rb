@@ -14,7 +14,7 @@ class RailsTemplate
   scope :listed, :listed => true
   scope :recent, :order => [[:updated_at, -1]]
 
-  key :recipes, Array, :typecast => RailsWizard::Recipe
+  key :recipes, Array
   key :custom_code, String
   
   attr_protected :user, :user_id
@@ -22,7 +22,7 @@ class RailsTemplate
   timestamps!
   
   def command_line_options
-    recipes.map{|r| r.options}.uniq.join(' ')
+    recipes.map{|r| r.args}.uniq.join(' ')
   end
   
   # Validations
@@ -33,6 +33,10 @@ class RailsTemplate
     self.user.nil? || (user.id == self.user_id if user)
   end
   
+  def recipes
+    super.map{|key| RailsWizard::Recipes[key]}
+  end
+
   # Params
   def to_param
     self.slug
@@ -40,10 +44,6 @@ class RailsTemplate
   
   def self.from_param(slug)
     RailsTemplate.find_by_slug(slug)
-  end
-  
-  def recipes
-    Recipe.where(:slug => RECIPE_FIELDS.map{|f| self.send(f)})
   end
   
   def name

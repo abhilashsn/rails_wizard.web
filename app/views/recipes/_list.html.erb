@@ -1,0 +1,7 @@
+<% 
+  id ||= recipe_list 
+  recipes ||= []
+%>
+<ul class='recipes' id='<%= id %>'>
+  <%= render :partial => "recipes/recipe", :collection => recipes %>    
+</ul>

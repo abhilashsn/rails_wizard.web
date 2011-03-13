@@ -53,14 +53,15 @@ body
   display: none
   
 
-$c_orm: #f70
-$c_templating: #1aa
-$c_unit_testing: #c08
-$c_javascript: #3a0
-$c_integration_testing: #c00
-$c_css: #fc0
-$c_authentication: #04c
-$c_deployment: #80f
+$c_orm: #c00
+$c_templating: #0c0
+$c_unit_testing: #44f
+$c_javascript: #fc0
+$c_integration_testing: #c0c
+$c_css: #0cc
+$c_authentication: #f70
+$c_deployment: #c07
+$c_services: #ac0
 
 #recipe_filters
   background: #181818
@@ -98,6 +99,8 @@ $c_deployment: #80f
       color: $c_authentication
     &.deployment
       color: $c_deployment
+    &.services
+      color: $c_services
 
 #new_rails_template
   position: fixed
@@ -168,15 +171,18 @@ ul.recipes li, #help_text li
     background: $c_unit_testing
   &.javascript
     background: $c_javascript
+    color: black    
   &.integration_testing
     background: $c_integration_testing
   &.css
     background: $c_css
-    color: black
   &.authentication
     background: $c_authentication
   &.deployment
     background: $c_deployment
+  &.services
+    background: $c_services
+    color: black
   &.disabled
     color: #ccc
     background: #666
@@ -194,3 +200,72 @@ ul.recipes li, #help_text li
     +animate(bottom, 0.5s)
     &.visible
       bottom: 0px
+
+#main
+  > h1
+    padding: 10px 15px
+    background: #0cc
+    color: #111
+    font-size: 30px
+    font-weight: bold
+    text-align: center
+
+#saved_recipes 
+  text-align: center
+  padding: 10px
+  li
+    display: inline-block
+    font-size: 20px
+    b
+      display: inline-block
+
+#rails_command
+  padding: 20px
+  background: #111
+  font-family: Monaco, monospace
+  font-size: 14px
+  color: white
+  text-align: center
+  a
+    color: #ff0
+  #app_name
+    color: #f08
+    font-weight: bold
+
+#directory_picker
+  text-align: center
+  color: #888
+  font-size: 14px
+  margin: 0 0 10px
+  background: black
+  input
+    background: black
+    padding: 2px 5px
+    font-family: Monaco, monospace
+    font-weight: bold
+    border: 1px solid #333
+    font-size: 14px
+    color: #f08
+
+.breakout_box
+  background: #111
+  h1
+    padding: 8px 12px
+    background: black
+    color: #0cc
+    font-weight: bold
+    font-size: 20px
+    small
+      font-weight: normal
+      font-size: 12px
+      color: #888
+      float: right
+      line-height: 20px
+
+#content
+  > header
+    h1
+      color: #ee0
+      font-size: 40px
+      text-align: center
+      margin: 20px

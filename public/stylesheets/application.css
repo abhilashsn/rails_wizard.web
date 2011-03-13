@@ -120,21 +120,23 @@ body {
     text-decoration: none;
     color: white; }
     #recipe_filters a.orm {
-      color: #ff7700; }
-    #recipe_filters a.templating {
-      color: #11aaaa; }
-    #recipe_filters a.unit_testing {
-      color: #cc0088; }
-    #recipe_filters a.javascript {
-      color: #33aa00; }
-    #recipe_filters a.integration_testing {
       color: #cc0000; }
-    #recipe_filters a.css {
+    #recipe_filters a.templating {
+      color: #00cc00; }
+    #recipe_filters a.unit_testing {
+      color: #4444ff; }
+    #recipe_filters a.javascript {
       color: #ffcc00; }
+    #recipe_filters a.integration_testing {
+      color: #cc00cc; }
+    #recipe_filters a.css {
+      color: #00cccc; }
     #recipe_filters a.authentication {
-      color: #0044cc; }
+      color: #ff7700; }
     #recipe_filters a.deployment {
-      color: #8800ff; }
+      color: #cc0077; }
+    #recipe_filters a.services {
+      color: #aacc00; }
 
 #new_rails_template {
   position: fixed;
@@ -218,22 +220,25 @@ ul.recipes li {
     font-weight: bold; }
 
 ul.recipes li.orm, #help_text li.orm {
-  background: #ff7700; }
-ul.recipes li.templating, #help_text li.templating {
-  background: #11aaaa; }
-ul.recipes li.unit_testing, #help_text li.unit_testing {
-  background: #cc0088; }
-ul.recipes li.javascript, #help_text li.javascript {
-  background: #33aa00; }
-ul.recipes li.integration_testing, #help_text li.integration_testing {
   background: #cc0000; }
-ul.recipes li.css, #help_text li.css {
+ul.recipes li.templating, #help_text li.templating {
+  background: #00cc00; }
+ul.recipes li.unit_testing, #help_text li.unit_testing {
+  background: #4444ff; }
+ul.recipes li.javascript, #help_text li.javascript {
   background: #ffcc00;
   color: black; }
+ul.recipes li.integration_testing, #help_text li.integration_testing {
+  background: #cc00cc; }
+ul.recipes li.css, #help_text li.css {
+  background: #00cccc; }
 ul.recipes li.authentication, #help_text li.authentication {
-  background: #0044cc; }
+  background: #ff7700; }
 ul.recipes li.deployment, #help_text li.deployment {
-  background: #8800ff; }
+  background: #cc0077; }
+ul.recipes li.services, #help_text li.services {
+  background: #aacc00;
+  color: black; }
 ul.recipes li.disabled, #help_text li.disabled {
   color: #cccccc;
   background: #666666; }
@@ -263,3 +268,69 @@ ul.recipes li.disabled, #help_text li.disabled {
   transition-duration: 0.5s; }
   #help_text li.visible {
     bottom: 0px; }
+
+#main > h1 {
+  padding: 10px 15px;
+  background: #00cccc;
+  color: #111111;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center; }
+
+#saved_recipes {
+  text-align: center;
+  padding: 10px; }
+  #saved_recipes li {
+    display: inline-block;
+    font-size: 20px; }
+    #saved_recipes li b {
+      display: inline-block; }
+
+#rails_command {
+  padding: 20px;
+  background: #111111;
+  font-family: Monaco, monospace;
+  font-size: 14px;
+  color: white;
+  text-align: center; }
+  #rails_command a {
+    color: yellow; }
+  #rails_command #app_name {
+    color: #ff0088;
+    font-weight: bold; }
+
+#directory_picker {
+  text-align: center;
+  color: #888888;
+  font-size: 14px;
+  margin: 0 0 10px;
+  background: black; }
+  #directory_picker input {
+    background: black;
+    padding: 2px 5px;
+    font-family: Monaco, monospace;
+    font-weight: bold;
+    border: 1px solid #333333;
+    font-size: 14px;
+    color: #ff0088; }
+
+.breakout_box {
+  background: #111111; }
+  .breakout_box h1 {
+    padding: 8px 12px;
+    background: black;
+    color: #00cccc;
+    font-weight: bold;
+    font-size: 20px; }
+    .breakout_box h1 small {
+      font-weight: normal;
+      font-size: 12px;
+      color: #888888;
+      float: right;
+      line-height: 20px; }
+
+#content > header h1 {
+  color: #eeee00;
+  font-size: 40px;
+  text-align: center;
+  margin: 20px; }
