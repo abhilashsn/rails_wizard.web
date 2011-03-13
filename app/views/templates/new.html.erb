@@ -1,7 +1,8 @@
 <%= form_for template, :url => templates_path do |f| %>
   <header>
-    <h1>Your Template <small>Just click recipes from the list to add them to your template.</small></h1>
-    <button type='submit'>Create Template &raquo;</button>
+  <h1>Your Template <small>Just click recipes from the list to add them to your template.</small></h1>
+    <input type='submit' name="next_step" value="Finish">
+    <input type='submit' name='next_step' value="Configure">
   </header>
 
   <%= render "recipes/list", :id => 'selected_recipes' %> 
@@ -49,7 +50,7 @@ $(function() {
   $('ul.recipes li').live('recipe:add', function() {
     $('#unused_recipes').isotope('remove',$(this)).isotope('reLayout').isotope({filter:'*'});
     $('#selected_recipes').isotope('insert', $(this).clone());
-    $('#unused_recipes').find('li[data-category=' + $(this).attr('data-category') + ']').addClass('disabled');
+    $('#unused_recipes').find('li[data-exclusive=' + $(this).attr('data-exclusive') + ']').addClass('disabled');
     $('#name_filter').val('');
     $('#help_text li').removeClass('visible');
   });
@@ -57,7 +58,7 @@ $(function() {
   $('ul.recipes li').live('recipe:remove', function() {
     $('#selected_recipes').isotope('remove',$(this)).isotope('reLayout');
     $('#unused_recipes').isotope('insert', $(this).clone());
-    $('#unused_recipes').find('li[data-category=' + $(this).attr('data-category') + ']').removeClass('disabled');
+    $('#unused_recipes').find('li[data-exclusive=' + $(this).attr('data-exclusive') + ']').removeClass('disabled');
     $('#help_text li').removeClass('visible');  
   });
 

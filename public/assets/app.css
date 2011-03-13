@@ -119,11 +119,11 @@ body {
     margin: 0 3px;
     text-decoration: none;
     color: white; }
-    #recipe_filters a.orm {
+    #recipe_filters a.persistence {
       color: #cc0000; }
     #recipe_filters a.templating {
       color: #00cc00; }
-    #recipe_filters a.unit_testing {
+    #recipe_filters a.testing {
       color: #4444ff; }
     #recipe_filters a.javascript {
       color: #ffcc00; }
@@ -165,7 +165,7 @@ body {
       #new_rails_template header h1 small {
         font-size: 12px;
         color: #aaaaaa; }
-    #new_rails_template header button {
+    #new_rails_template header input[type=submit] {
       float: right;
       background: #111111;
       cursor: pointer;
@@ -185,7 +185,7 @@ body {
       -o-transition-duration: 0.25s;
       -ms-transition-duration: 0.25s;
       transition-duration: 0.25s; }
-      #new_rails_template header button:hover, #new_rails_template header button:focus {
+      #new_rails_template header input[type=submit]:hover, #new_rails_template header input[type=submit]:focus {
         background: #00cccc;
         color: #111111; }
 
@@ -219,11 +219,11 @@ ul.recipes li {
     padding: 6px 12px;
     font-weight: bold; }
 
-ul.recipes li.orm, #help_text li.orm {
+ul.recipes li.persistence, #help_text li.persistence {
   background: #cc0000; }
 ul.recipes li.templating, #help_text li.templating {
   background: #00cc00; }
-ul.recipes li.unit_testing, #help_text li.unit_testing {
+ul.recipes li.testing, #help_text li.testing {
   background: #4444ff; }
 ul.recipes li.javascript, #help_text li.javascript {
   background: #ffcc00;
@@ -323,7 +323,7 @@ ul.recipes li.disabled, #help_text li.disabled {
     font-weight: bold;
     font-size: 20px; }
     .breakout_box h1 small {
-      font-weight: normal;
+      font-weight: npersistenceal;
       font-size: 12px;
       color: #888888;
       float: right;

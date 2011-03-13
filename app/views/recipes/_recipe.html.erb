@@ -1,4 +1,4 @@
-  <li class='<%= recipe.category %>' data-name="<%= recipe.name.downcase %>" data-category='<%= recipe.category %>'>
-    <%= hidden_field_tag "rails_template[recipes][]", recipe.key %>
-    <b><%= recipe.name %></b>
-  </li>
+<li class='<%= recipe.category %><%= " x_#{recipe.exclusive}" if recipe.exclusive %>' data-name="<%= recipe.name.downcase %>" data-category='<%= recipe.category %>'<%= " data-exclusive='#{ recipe.exclusive }'" if recipe.exclusive %>>
+  <%= hidden_field_tag "rails_template[recipes][]", recipe.key %>
+  <b><%= recipe.name %></b>
+</li>

@@ -1,13 +1,11 @@
 <%= form_for template, :url => template_path(template), :html => {:method => :put} do |f| %>
-  <%= hidden_field_tag :step, params[:step] %>
-  
-  <% for step in RailsTemplate::STEPS %>
-    <%= render "steps/#{step}", :f => f %>
-  <% end %>
-  
-  <div class='field submit'>
-    <%= f.submit 'Next Step', :style => 'float: right; margin-left: 6px' if next_step %>
-    <%= f.submit 'Finish', :style => 'float: right; margin-left: 6px;' unless next_step %>    
-    <%= f.submit 'Previous Step', :class => 'grey' if previous_step %>
+  <h1>Customize Template</h1>
+
+  <div class='field text'>
+    <%= f.label :custom_code, 'Custom Template Code:' %>
+    <%= f.label :custom_code, 'Add Ruby code that will be appended to the end of the template. Use this to add features not supported by the wizard. Check the <a href="http://api.rubyonrails.org/classes/Rails/Generators/Actions.html" target="_blank">Rails Documentation</a> for additional information about commands you can use.'.html_safe, :class => 'help' %>
+    <%= f.text_area :custom_code, :class => 'bespin', :style => 'height: 400px; margin-top: 10px; width: 700px; margin-left: 40px' %>
   </div>
+
+  <%= bespin_setup 'rails_template_custom_code' %>
 <% end %>

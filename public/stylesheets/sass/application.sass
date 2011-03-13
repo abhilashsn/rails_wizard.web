@@ -2,6 +2,26 @@
 @import mixins.sass
 @import reset.sass
 
+$red: #c00
+$green: #0c0
+$blue: #44f
+$yellow: #fc0
+$magenta: #c0c
+$cyan: #0cc
+$orange: #f70
+$violet: #c07
+$olive: #ac0
+
+$c_persistence: $red
+$c_templating: $green
+$c_testing: $blue
+$c_javascript: $yellow
+$c_integration_testing: $magenta
+$c_css: $cyan
+$c_authentication: $orange
+$c_deployment: $violet
+$c_services: $olive
+
 body
   font-family: sans-serif
   background: #282828
@@ -51,17 +71,6 @@ body
     vertical-align: middle
     margin-right: 5px
   display: none
-  
-
-$c_orm: #c00
-$c_templating: #0c0
-$c_unit_testing: #44f
-$c_javascript: #fc0
-$c_integration_testing: #c0c
-$c_css: #0cc
-$c_authentication: #f70
-$c_deployment: #c07
-$c_services: #ac0
 
 #recipe_filters
   background: #181818
@@ -75,7 +84,7 @@ $c_services: #ac0
     font-size: 14px
     padding: 4px 8px
     border: 1px solid #444
-    color: #0cc
+    color: $cyan
   a
     display: inline-block
     font-weight: bold
@@ -83,12 +92,12 @@ $c_services: #ac0
     margin: 0 3px
     text-decoration: none
     color: white
-    &.orm
-      color: $c_orm
+    &.persistence
+      color: $c_persistence
     &.templating
       color: $c_templating
-    &.unit_testing
-      color: $c_unit_testing
+    &.testing
+      color: $c_testing
     &.javascript
       color: $c_javascript
     &.integration_testing
@@ -128,11 +137,11 @@ $c_services: #ac0
       small
         font-size: 12px
         color: #aaa
-    button
+    input[type=submit]
       float: right
       background: #111
       cursor: pointer
-      color: #0cc
+      color: $cyan
       background: #033
       border: 0
       font-family: sans-serif
@@ -140,7 +149,7 @@ $c_services: #ac0
       padding: 4px 8px
       +animate("background-color, color", 0.25s)
       &:hover, &:focus
-        background: #0cc
+        background: $cyan
         color: #111
     margin: 0 10px
 
@@ -163,12 +172,12 @@ ul.recipes
       font-weight: bold
 
 ul.recipes li, #help_text li
-  &.orm
-    background: $c_orm
+  &.persistence
+    background: $c_persistence
   &.templating
     background: $c_templating
-  &.unit_testing
-    background: $c_unit_testing
+  &.testing
+    background: $c_testing
   &.javascript
     background: $c_javascript
     color: black    
@@ -204,7 +213,7 @@ ul.recipes li, #help_text li
 #main
   > h1
     padding: 10px 15px
-    background: #0cc
+    background: $cyan
     color: #111
     font-size: 30px
     font-weight: bold
@@ -252,11 +261,11 @@ ul.recipes li, #help_text li
   h1
     padding: 8px 12px
     background: black
-    color: #0cc
+    color: $cyan
     font-weight: bold
     font-size: 20px
     small
-      font-weight: normal
+      font-weight: npersistenceal
       font-size: 12px
       color: #888
       float: right

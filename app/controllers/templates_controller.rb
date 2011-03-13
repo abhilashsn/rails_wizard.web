@@ -20,7 +20,7 @@ class TemplatesController < ApplicationController
     @template.user = current_user if signed_in?
     
     if @template.save
-      redirect_to show_path(@template)
+      redirect_to (params[:next_step] == 'Finish') ? show_path(@template) : edit_path(@template)
     else
       flash[:alert] = 'Unable to create a template. Something is wrong.'
       redirect_to root_path
