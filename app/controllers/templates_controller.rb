@@ -35,7 +35,8 @@ class TemplatesController < ApplicationController
   end
   
   def compile
-    render :action => 'compile', :content_type => 'text/plain', :layout => false
+    t = RailsWizard::Template.new(template.recipes)
+    render :text => t.compile, :content_type => 'text/plain', :layout => false
   end
   
   def update
