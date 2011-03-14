@@ -47,7 +47,7 @@ GIT
       plucky (~> 0.3.6)
 
 PATH
-  remote: /Users/mbleigh/rails3/rails_wizard
+  remote: vendor/gems/rails_wizard
   specs:
     rails_wizard (0.0.1)
       activesupport (~> 3.0.0)

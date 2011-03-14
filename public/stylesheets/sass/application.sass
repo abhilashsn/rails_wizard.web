@@ -7,7 +7,7 @@ $green: #0c0
 $blue: #44f
 $yellow: #fc0
 $magenta: #c0c
-$cyan: #0cc
+$cyan: #0bb
 $orange: #f70
 $violet: #c07
 $olive: #ac0
@@ -15,12 +15,12 @@ $olive: #ac0
 $c_persistence: $red
 $c_templating: $green
 $c_testing: $blue
-$c_javascript: $yellow
+$c_assets: $cyan
 $c_integration_testing: $magenta
-$c_css: $cyan
+$c_other: $olive
 $c_authentication: $orange
 $c_deployment: $violet
-$c_services: $olive
+$c_services: $yellow
 
 body
   font-family: sans-serif
@@ -71,45 +71,6 @@ body
     vertical-align: middle
     margin-right: 5px
   display: none
-
-#recipe_filters
-  background: #181818
-  padding: 10px
-  margin: 0 -20px 15px
-  #name_filter
-    float: right
-    margin-top: -5px
-    background: black
-    border: 0
-    font-size: 14px
-    padding: 4px 8px
-    border: 1px solid #444
-    color: $cyan
-  a
-    display: inline-block
-    font-weight: bold
-    font-size: 14px
-    margin: 0 3px
-    text-decoration: none
-    color: white
-    &.persistence
-      color: $c_persistence
-    &.templating
-      color: $c_templating
-    &.testing
-      color: $c_testing
-    &.javascript
-      color: $c_javascript
-    &.integration_testing
-      color: $c_integration_testing
-    &.css
-      color: $c_css
-    &.authentication
-      color: $c_authentication
-    &.deployment
-      color: $c_deployment
-    &.services
-      color: $c_services
 
 #new_rails_template
   position: fixed
@@ -171,6 +132,47 @@ ul.recipes
       padding: 6px 12px
       font-weight: bold
 
+#recipe_filters
+  background: #181818
+  padding: 10px
+  margin: 0 -20px 15px
+  #name_filter
+    float: right
+    margin-top: -5px
+    background: black
+    border: 0
+    font-size: 14px
+    padding: 4px 8px
+    border: 1px solid #444
+    color: $cyan
+  a
+    display: inline-block
+    font-weight: bold
+    font-size: 14px
+    margin: 0 3px
+    text-decoration: none
+    color: white
+
+#recipe_filters a
+  &.persistence
+    color: $c_persistence
+  &.templating
+    color: $c_templating
+  &.testing
+    color: $c_testing
+  &.integration_testing
+    color: $c_integration_testing
+  &.assets
+    color: $c_assets
+  &.authentication
+    color: $c_authentication
+  &.deployment
+    color: $c_deployment
+  &.services
+    color: $c_services
+  &.other
+    color: $c_other
+
 ul.recipes li, #help_text li
   &.persistence
     background: $c_persistence
@@ -178,19 +180,21 @@ ul.recipes li, #help_text li
     background: $c_templating
   &.testing
     background: $c_testing
-  &.javascript
-    background: $c_javascript
-    color: black    
+  &.assets
+    background: $c_assets 
   &.integration_testing
     background: $c_integration_testing
   &.css
-    background: $c_css
+    background: $c_assets
   &.authentication
     background: $c_authentication
   &.deployment
     background: $c_deployment
   &.services
     background: $c_services
+    color: black
+  &.other
+    background: $c_other
     color: black
   &.disabled
     color: #ccc

@@ -99,45 +99,6 @@ body {
     vertical-align: middle;
     margin-right: 5px; }
 
-#recipe_filters {
-  background: #181818;
-  padding: 10px;
-  margin: 0 -20px 15px; }
-  #recipe_filters #name_filter {
-    float: right;
-    margin-top: -5px;
-    background: black;
-    border: 0;
-    font-size: 14px;
-    padding: 4px 8px;
-    border: 1px solid #444444;
-    color: #00cccc; }
-  #recipe_filters a {
-    display: inline-block;
-    font-weight: bold;
-    font-size: 14px;
-    margin: 0 3px;
-    text-decoration: none;
-    color: white; }
-    #recipe_filters a.persistence {
-      color: #cc0000; }
-    #recipe_filters a.templating {
-      color: #00cc00; }
-    #recipe_filters a.testing {
-      color: #4444ff; }
-    #recipe_filters a.javascript {
-      color: #ffcc00; }
-    #recipe_filters a.integration_testing {
-      color: #cc00cc; }
-    #recipe_filters a.css {
-      color: #00cccc; }
-    #recipe_filters a.authentication {
-      color: #ff7700; }
-    #recipe_filters a.deployment {
-      color: #cc0077; }
-    #recipe_filters a.services {
-      color: #aacc00; }
-
 #new_rails_template {
   position: fixed;
   top: 50px;
@@ -169,7 +130,7 @@ body {
       float: right;
       background: #111111;
       cursor: pointer;
-      color: #00cccc;
+      color: #00bbbb;
       background: #003333;
       border: 0;
       font-family: sans-serif;
@@ -186,7 +147,7 @@ body {
       -ms-transition-duration: 0.25s;
       transition-duration: 0.25s; }
       #new_rails_template header input[type=submit]:hover, #new_rails_template header input[type=submit]:focus {
-        background: #00cccc;
+        background: #00bbbb;
         color: #111111; }
 
 #recipe_picker {
@@ -219,24 +180,66 @@ ul.recipes li {
     padding: 6px 12px;
     font-weight: bold; }
 
+#recipe_filters {
+  background: #181818;
+  padding: 10px;
+  margin: 0 -20px 15px; }
+  #recipe_filters #name_filter {
+    float: right;
+    margin-top: -5px;
+    background: black;
+    border: 0;
+    font-size: 14px;
+    padding: 4px 8px;
+    border: 1px solid #444444;
+    color: #00bbbb; }
+  #recipe_filters a {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 3px;
+    text-decoration: none;
+    color: white; }
+
+#recipe_filters a.persistence {
+  color: #cc0000; }
+#recipe_filters a.templating {
+  color: #00cc00; }
+#recipe_filters a.testing {
+  color: #4444ff; }
+#recipe_filters a.integration_testing {
+  color: #cc00cc; }
+#recipe_filters a.assets {
+  color: #00bbbb; }
+#recipe_filters a.authentication {
+  color: #ff7700; }
+#recipe_filters a.deployment {
+  color: #cc0077; }
+#recipe_filters a.services {
+  color: #ffcc00; }
+#recipe_filters a.other {
+  color: #aacc00; }
+
 ul.recipes li.persistence, #help_text li.persistence {
   background: #cc0000; }
 ul.recipes li.templating, #help_text li.templating {
   background: #00cc00; }
 ul.recipes li.testing, #help_text li.testing {
   background: #4444ff; }
-ul.recipes li.javascript, #help_text li.javascript {
-  background: #ffcc00;
-  color: black; }
+ul.recipes li.assets, #help_text li.assets {
+  background: #00bbbb; }
 ul.recipes li.integration_testing, #help_text li.integration_testing {
   background: #cc00cc; }
 ul.recipes li.css, #help_text li.css {
-  background: #00cccc; }
+  background: #00bbbb; }
 ul.recipes li.authentication, #help_text li.authentication {
   background: #ff7700; }
 ul.recipes li.deployment, #help_text li.deployment {
   background: #cc0077; }
 ul.recipes li.services, #help_text li.services {
+  background: #ffcc00;
+  color: black; }
+ul.recipes li.other, #help_text li.other {
   background: #aacc00;
   color: black; }
 ul.recipes li.disabled, #help_text li.disabled {
@@ -271,7 +274,7 @@ ul.recipes li.disabled, #help_text li.disabled {
 
 #main > h1 {
   padding: 10px 15px;
-  background: #00cccc;
+  background: #00bbbb;
   color: #111111;
   font-size: 30px;
   font-weight: bold;
@@ -319,7 +322,7 @@ ul.recipes li.disabled, #help_text li.disabled {
   .breakout_box h1 {
     padding: 8px 12px;
     background: black;
-    color: #00cccc;
+    color: #00bbbb;
     font-weight: bold;
     font-size: 20px; }
     .breakout_box h1 small {
