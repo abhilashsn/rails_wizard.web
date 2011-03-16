@@ -928,8 +928,8 @@ $(function() { if ($('#unused_recipes').length > 0) {
   });
 
   $('ul.recipes li').live('recipe:add', function() {
-    $('#unused_recipes').isotope('remove',$(this)).isotope('reLayout').isotope({filter:'*'});
     $('#selected_recipes').isotope('insert', $(this).clone());
+    $(this).addClass('disabled');
     $('#unused_recipes').find('li[data-exclusive=' + $(this).attr('data-exclusive') + ']').addClass('disabled');
     $('#name_filter').val('');
     $('#help_text li').removeClass('visible');
@@ -937,7 +937,7 @@ $(function() { if ($('#unused_recipes').length > 0) {
 
   $('ul.recipes li').live('recipe:remove', function() {
     $('#selected_recipes').isotope('remove',$(this)).isotope('reLayout');
-    $('#unused_recipes').isotope('insert', $(this).clone());
+    $('#unused_recipes').find('li[data-name=' + $(this).attr('data-name') + ']').removeClass('disabled');
     $('#unused_recipes').find('li[data-exclusive=' + $(this).attr('data-exclusive') + ']').removeClass('disabled');
     $('#help_text li').removeClass('visible');  
   });
@@ -953,7 +953,7 @@ $(function() { if ($('#unused_recipes').length > 0) {
   });
 
   setInterval(function() {
-    $('#recipe_picker').css('margin-top', $('#new_rails_template').height() + 20);
+    $('#recipe_picker').css('margin-top', $('#new_rails_template').height() + 25);
   });
 
   $('ul.recipes li').live('mouseover', function() {
