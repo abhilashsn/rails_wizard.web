@@ -1,3 +1,0 @@
-[submodule "vendor/gems/rails_wizard"]
-	path = vendor/gems/rails_wizard
-	url = git://github.com/intridea/rails_wizard.git

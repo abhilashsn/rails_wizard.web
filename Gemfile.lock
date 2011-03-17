@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/intridea/rails_wizard.git
+  revision: 2fdb4f931810ed7143a2006b6a71759034667193
+  specs:
+    rails_wizard (0.1.0)
+      activesupport (~> 3.0.0)
+      i18n
+
+GIT
   remote: https://github.com/intridea/omniauth.git
   revision: 71d639d203762b521709423b023ede9c75156c0a
   specs:
@@ -45,13 +53,6 @@ GIT
       activemodel (~> 3.0.0)
       activesupport (~> 3.0.0)
       plucky (~> 0.3.6)
-
-PATH
-  remote: vendor/gems/rails_wizard
-  specs:
-    rails_wizard (0.0.1)
-      activesupport (~> 3.0.0)
-      i18n
 
 GEM
   remote: http://rubygems.org/
@@ -184,6 +185,6 @@ DEPENDENCIES
   omniauth!
   rails (= 3.0.1)
   rails3-generators
-  rails_wizard!
+  rails_wizard (= 0.1.0)!
   rspec-rails (~> 2.0.1)
   tweet-button
