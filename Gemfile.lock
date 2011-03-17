@@ -1,10 +1,11 @@
 GIT
   remote: git://github.com/intridea/rails_wizard.git
-  revision: 2fdb4f931810ed7143a2006b6a71759034667193
+  revision: 4f663b5b8ea3ff0246db0821614c010e7bfc1e1c
   specs:
-    rails_wizard (0.1.0)
+    rails_wizard (0.1.1)
       activesupport (~> 3.0.0)
       i18n
+      thor
 
 GIT
   remote: https://github.com/intridea/omniauth.git
@@ -185,6 +186,6 @@ DEPENDENCIES
   omniauth!
   rails (= 3.0.1)
   rails3-generators
-  rails_wizard (= 0.1.0)!
+  rails_wizard!
   rspec-rails (~> 2.0.1)
   tweet-button
