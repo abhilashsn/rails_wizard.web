@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RailsWizard</title>
-  <%= generate_toc(@toc) %>
+  <title>RailsWizard - Simple Rails Templates courtesy of Intridea</title>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
   <%= include_javascripts :app %>
   <%= include_stylesheets :app %>
@@ -14,26 +13,17 @@
   hljs.tabReplace = '  ';
   hljs.initHighlightingOnLoad();
   </script>
-</head>
 <body>
   <%= render "layouts/flash", :flash => flash %>
   <header id='top'>
-      <%= link_to image_tag('/images/intridea.png', :alt => 'built by Intridea'), 'http://intridea.com', :target => '_blank', :id => 'intridea' %>
-      <h1><%= link_to 'RailsWizard', '/' %></h1>
-      <aside id='user_bar'>
-        <% if signed_in? %>
-          <div id='signed_in'>
-          <%= link_to user_path(current_user), :class => ('admin' if current_user.admin?) do %>
-            <b><%= current_user.name %></b>
-          <% end %>
-          
-          <%= link_to 'Submit a Recipe', new_recipe_path %>
-          <%= link_to 'Sign Out', sign_out_path %>
-          </div>
-        <% else %>
-          <%= link_to image_tag("/images/github.png") + "Sign in with GitHub", '/auth/github', :id => 'sign_in', :rel => 'nofollow' %>
-        <% end %>
-      </aside>
+    <%= link_to image_tag('/images/intridea.png', :alt => 'built by Intridea'), 'http://intridea.com', :target => '_blank', :id => 'intridea' %>
+    <h1><%= link_to 'RailsWizard', '/' %></h1>
+    <nav>
+      <ul>
+        <li><%= link_to "About", "https://github.com/intridea/rails_wizard" %></li>
+        <li><%= link_to "Feedback", "https://github.com/intridea/rails_wizard/issues" %></li>
+      </ul>
+    </nav>   
   </header>
   
   <div id='wrapper'>

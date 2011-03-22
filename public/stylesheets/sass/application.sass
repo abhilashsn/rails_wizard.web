@@ -33,6 +33,20 @@ body
   display: none
 
 #top
+  nav
+    li
+      float: left
+      a
+        display: block
+        color: white
+        text-decoration: none
+        line-height: 50px
+        padding: 0 10px
+        +animate(color, 0.25s)
+      &:first-child a:hover
+        color: $cyan
+      &:last-child a:hover
+        color: $yellow
   z-index: 1000
   position: fixed
   display: block

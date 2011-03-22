@@ -53,6 +53,28 @@ body {
   width: 100%;
   height: 50px;
   background: #111111; }
+  #top nav li {
+    float: left; }
+    #top nav li a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      line-height: 50px;
+      padding: 0 10px;
+      -webkit-transition-property: color;
+      -moz-transition-property: color;
+      -o-transition-property: color;
+      -ms-transition-property: color;
+      transition-property: color;
+      -webkit-transition-duration: 0.25s;
+      -moz-transition-duration: 0.25s;
+      -o-transition-duration: 0.25s;
+      -ms-transition-duration: 0.25s;
+      transition-duration: 0.25s; }
+    #top nav li:first-child a:hover {
+      color: #00bbbb; }
+    #top nav li:last-child a:hover {
+      color: #ffcc00; }
   #top a#intridea {
     float: right; }
   #top h1 {
@@ -62,7 +84,7 @@ body {
       display: block;
       width: 200px;
       height: 50px;
-      background: url(/images/logo.png?1299959445);
+      background: url(/images/logo.png?1300835704);
       text-indent: -999em; }
 
 #sign_in {
