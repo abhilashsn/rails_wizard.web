@@ -15,4 +15,4 @@ group :test, :development do
   gem 'rspec-rails', '~> 2.0.1'
 end
 
-gem 'rails_wizard', :git => 'git://github.com/intridea/rails_wizard.git' # :path => 'vendor/gems/rails_wizard'
+gem 'rails_wizard', '0.1.2' 

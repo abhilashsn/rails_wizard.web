@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/intridea/rails_wizard.git
-  revision: 4f663b5b8ea3ff0246db0821614c010e7bfc1e1c
-  specs:
-    rails_wizard (0.1.1)
-      activesupport (~> 3.0.0)
-      i18n
-      thor
-
-GIT
   remote: https://github.com/intridea/omniauth.git
   revision: 71d639d203762b521709423b023ede9c75156c0a
   specs:
@@ -142,6 +133,10 @@ GEM
       bundler (~> 1.0.0)
       railties (= 3.0.1)
     rails3-generators (0.14.0)
+    rails_wizard (0.1.2)
+      activesupport (~> 3.0.0)
+      i18n
+      thor
     railties (3.0.1)
       actionpack (= 3.0.1)
       activesupport (= 3.0.1)
@@ -186,6 +181,6 @@ DEPENDENCIES
   omniauth!
   rails (= 3.0.1)
   rails3-generators
-  rails_wizard!
+  rails_wizard (= 0.1.2)
   rspec-rails (~> 2.0.1)
   tweet-button
