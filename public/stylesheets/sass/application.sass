@@ -26,8 +26,14 @@ body
   font-family: sans-serif
   background: #282828
 
+#unused_recipes
+  display: block
+  padding: 10px
+
 #content
-  padding: 55px 20px 20px
+  display: block
+  width: 100%
+  // padding: 55px 20px 20px
 
 #bottom
   display: none
@@ -48,7 +54,6 @@ body
       &:last-child a:hover
         color: $yellow
   z-index: 1000
-  position: fixed
   display: block
   top: 0
   left: 0
@@ -87,11 +92,10 @@ body
   display: none
 
 #new_rails_template
-  position: fixed
-  top: 60px
-  left: 0
-  width: 100%
-  padding: 5px 0
+  margin-top: 10px
+  margin-bottom: 10px
+  padding-top: 5px
+  padding-bottom: 5px
   background: #181818
   border-bottom: 2px
   z-index: 999
@@ -104,6 +108,9 @@ body
         padding: 4px 8px
   header
     height: 30px
+    display: block
+    padding-left: 10px
+    padding-right: 10px
     h1
       line-height: 30px
       color: #f0a
@@ -113,6 +120,7 @@ body
         font-size: 12px
         color: #aaa
     input[type=submit]
+      margin-top: 3px
       float: right
       background: #111
       cursor: pointer
@@ -126,12 +134,16 @@ body
       &:hover, &:focus
         background: $cyan
         color: #111
-    margin: 0 10px
+
+#wrapper
+  width: 100%
+  position: relative
 
 #recipe_picker
-  margin-top: 90px
-  +animate(margin, 0.5s)
-  margin-bottom: 70px
+  // padding: 10px
+  // margin-top: 90px
+  // +animate(margin, 0.5s)
+  // margin-bottom: 70px
 
 ul.recipes
   li
@@ -147,9 +159,9 @@ ul.recipes
       font-weight: bold
 
 #recipe_filters
+  display: block
   background: #181818
   padding: 10px
-  margin: 0 -20px 15px
   #name_filter
     float: right
     margin-top: -5px
