@@ -953,7 +953,7 @@ $(function() { if ($('#unused_recipes').length > 0) {
   });
 
   setInterval(function() {
-    $('#recipe_picker').css('margin-top', $('#new_rails_template').height() + 25);
+    // $('#recipe_picker').css('margin-top', $('#new_rails_template').height() + 25);
   });
 
   $('ul.recipes li').live('mouseover', function() {
