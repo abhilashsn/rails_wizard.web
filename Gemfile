@@ -15,4 +15,4 @@ group :test, :development do
   gem 'rspec-rails', '~> 2.0.1'
 end
 
-gem 'rails_wizard', '0.1.3' 
+gem 'rails_wizard', '0.1.4' 
