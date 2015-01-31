@@ -10,7 +10,6 @@ While it began as a Rails Rumble project, it will continue to grow in the future
 as more features and recipes are added. RailsWizard is licensed under the **MIT License**,
 so feel free to fork, play, and have fun.
 ## Resources
-
 * [Website](http://railswizard.org)
 * [Wiki](/intridea/rails_wizard/wiki)
 * [Feedback](/intridea/rails_wizard/issues)
